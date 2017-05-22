@@ -38,7 +38,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * MS SQL Database Adapter Class
+ * MS SQL database Adapter Class
  *
  * Note: _DB is an extender class that the app controller
  * creates dynamically based on whether the query builder
@@ -46,14 +46,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage	Drivers
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_mssql_driver extends CI_DB {
 
 	/**
-	 * Database driver
+	 * database driver
 	 *
 	 * @var	string
 	 */

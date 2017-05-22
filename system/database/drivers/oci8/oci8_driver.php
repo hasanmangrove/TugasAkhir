@@ -38,7 +38,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * oci8 Database Adapter Class
+ * oci8 database Adapter Class
  *
  * Note: _DB is an extender class that the app controller
  * creates dynamically based on whether the query builder
@@ -46,13 +46,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage  Drivers
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 
 /**
- * oci8 Database Adapter Class
+ * oci8 database Adapter Class
  *
  * This is a modification of the DB_driver class to
  * permit access to oracle databases
@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class CI_DB_oci8_driver extends CI_DB {
 
 	/**
-	 * Database driver
+	 * database driver
 	 *
 	 * @var	string
 	 */
@@ -241,7 +241,7 @@ class CI_DB_oci8_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database version number
+	 * database version number
 	 *
 	 * @return	string
 	 */

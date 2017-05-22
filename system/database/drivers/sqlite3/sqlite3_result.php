@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * This class extends the parent result class: CI_DB_result
  *
- * @category	Database
+ * @category	database
  * @author		Andrey Andreev
  * @link		https://codeigniter.com/user_guide/database/
  */

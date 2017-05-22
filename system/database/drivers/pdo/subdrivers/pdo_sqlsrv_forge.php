@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * PDO SQLSRV Forge Class
  *
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */

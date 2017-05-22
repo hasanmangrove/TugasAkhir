@@ -38,7 +38,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * ODBC Database Adapter Class
+ * ODBC database Adapter Class
  *
  * Note: _DB is an extender class that the app controller
  * creates dynamically based on whether the query builder
@@ -46,21 +46,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage	Drivers
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_odbc_driver extends CI_DB_driver {
 
 	/**
-	 * Database driver
+	 * database driver
 	 *
 	 * @var	string
 	 */
 	public $dbdriver = 'odbc';
 
 	/**
-	 * Database schema
+	 * database schema
 	 *
 	 * @var	string
 	 */

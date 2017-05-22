@@ -149,7 +149,7 @@ class CI_Exceptions {
 	 *
 	 * @param	string		$heading	Page heading
 	 * @param	string|string[]	$message	Error message
-	 * @param	string		$template	Template name
+	 * @param	string		$template	template name
 	 * @param 	int		$status_code	(default: 500)
 	 *
 	 * @return	string	Error page output

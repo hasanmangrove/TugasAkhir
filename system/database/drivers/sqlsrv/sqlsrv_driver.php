@@ -38,7 +38,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * SQLSRV Database Adapter Class
+ * SQLSRV database Adapter Class
  *
  * Note: _DB is an extender class that the app controller
  * creates dynamically based on whether the query builder
@@ -46,14 +46,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage	Drivers
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_sqlsrv_driver extends CI_DB {
 
 	/**
-	 * Database driver
+	 * database driver
 	 *
 	 * @var	string
 	 */
@@ -114,7 +114,7 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database connection
+	 * database connection
 	 *
 	 * @param	bool	$pooling
 	 * @return	resource
@@ -127,7 +127,7 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 		$connection = array(
 			'UID'			=> empty($this->username) ? '' : $this->username,
 			'PWD'			=> empty($this->password) ? '' : $this->password,
-			'Database'		=> $this->database,
+			'database'		=> $this->database,
 			'ConnectionPooling'	=> ($pooling === TRUE) ? 1 : 0,
 			'CharacterSet'		=> $charset,
 			'Encrypt'		=> ($this->encrypt === TRUE) ? 1 : 0,
@@ -258,7 +258,7 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database version number
+	 * database version number
 	 *
 	 * @return	string
 	 */

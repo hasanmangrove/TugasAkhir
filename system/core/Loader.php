@@ -357,14 +357,14 @@ class CI_Loader {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database Loader
+	 * database Loader
 	 *
-	 * @param	mixed	$params		Database configuration options
+	 * @param	mixed	$params		database configuration options
 	 * @param	bool	$return 	Whether to return the database object
 	 * @param	bool	$query_builder	Whether to enable Query Builder
 	 *					(overrides the configuration setting)
 	 *
-	 * @return	object|bool	Database object if $return is set to TRUE,
+	 * @return	object|bool	database object if $return is set to TRUE,
 	 *					FALSE on failure, CI_Loader instance in any other case
 	 */
 	public function database($params = '', $return = FALSE, $query_builder = NULL)
@@ -397,9 +397,9 @@ class CI_Loader {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Load the Database Utilities Class
+	 * Load the database Utilities Class
 	 *
-	 * @param	object	$db	Database object
+	 * @param	object	$db	database object
 	 * @param	bool	$return	Whether to return the DB Utilities class object or not
 	 * @return	object
 	 */
@@ -429,9 +429,9 @@ class CI_Loader {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Load the Database Forge Class
+	 * Load the database Forge Class
 	 *
-	 * @param	object	$db	Database object
+	 * @param	object	$db	database object
 	 * @param	bool	$return	Whether to return the DB Forge class object or not
 	 * @return	object
 	 */

@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage	Drivers
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
@@ -77,7 +77,7 @@ class CI_DB_postgre_forge extends CI_DB_forge {
 	/**
 	 * Class constructor
 	 *
-	 * @param	object	&$db	Database object
+	 * @param	object	&$db	database object
 	 * @return	void
 	 */
 	public function __construct(&$db)

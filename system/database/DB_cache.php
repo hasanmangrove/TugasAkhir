@@ -38,9 +38,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Database Cache Class
+ * database Cache Class
  *
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
@@ -54,7 +54,7 @@ class CI_DB_Cache {
 	public $CI;
 
 	/**
-	 * Database object
+	 * database object
 	 *
 	 * Allows passing of DB object so that multiple database connections
 	 * and returned DB objects can be supported.

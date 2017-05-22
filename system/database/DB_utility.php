@@ -38,16 +38,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Database Utility Class
+ * database Utility Class
  *
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 abstract class CI_DB_utility {
 
 	/**
-	 * Database object
+	 * database object
 	 *
 	 * @var	object
 	 */
@@ -81,13 +81,13 @@ abstract class CI_DB_utility {
 	/**
 	 * Class constructor
 	 *
-	 * @param	object	&$db	Database object
+	 * @param	object	&$db	database object
 	 * @return	void
 	 */
 	public function __construct(&$db)
 	{
 		$this->db =& $db;
-		log_message('info', 'Database Utility Class Initialized');
+		log_message('info', 'database Utility Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
@@ -166,7 +166,7 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Optimize Database
+	 * Optimize database
 	 *
 	 * @return	mixed
 	 */
@@ -314,7 +314,7 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database Backup
+	 * database Backup
 	 *
 	 * @param	array	$params
 	 * @return	string

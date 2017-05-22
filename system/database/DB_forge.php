@@ -38,16 +38,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Database Forge Class
+ * database Forge Class
  *
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 abstract class CI_DB_forge {
 
 	/**
-	 * Database object
+	 * database object
 	 *
 	 * @var	object
 	 */
@@ -75,7 +75,7 @@ abstract class CI_DB_forge {
 	public $primary_keys	= array();
 
 	/**
-	 * Database character set
+	 * database character set
 	 *
 	 * @var	string
 	 */
@@ -161,13 +161,13 @@ abstract class CI_DB_forge {
 	/**
 	 * Class constructor
 	 *
-	 * @param	object	&$db	Database object
+	 * @param	object	&$db	database object
 	 * @return	void
 	 */
 	public function __construct(&$db)
 	{
 		$this->db =& $db;
-		log_message('info', 'Database Forge Class Initialized');
+		log_message('info', 'database Forge Class Initialized');
 	}
 
 	// --------------------------------------------------------------------

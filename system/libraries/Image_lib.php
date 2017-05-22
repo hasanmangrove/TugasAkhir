@@ -275,7 +275,7 @@ class CI_Image_lib {
 	// --------------------------------------------------------------------------
 
 	/**
-	 * Source image folder
+	 * source image folder
 	 *
 	 * @var string
 	 */

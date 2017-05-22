@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Initialize the database
  *
- * @category	Database
+ * @category	database
  * @author	EllisLab Dev Team
  * @link	https://codeigniter.com/user_guide/database/
  *
@@ -107,7 +107,7 @@ function &DB($params = '', $query_builder_override = NULL)
 	{
 		/**
 		 * Parse the URL from the DSN string
-		 * Database settings can be passed as discreet
+		 * database settings can be passed as discreet
 		 * parameters or as a data source name in the first
 		 * parameter. DSNs must have this prototype:
 		 * $dsn = 'driver://username:password@hostname/database';

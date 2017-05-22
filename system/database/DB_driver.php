@@ -38,7 +38,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Database Driver Class
+ * database Driver Class
  *
  * This is the platform-independent base DB implementation class.
  * This class will not be called directly. Rather, the adapter
@@ -46,14 +46,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @package		CodeIgniter
  * @subpackage	Drivers
- * @category	Database
+ * @category	database
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
 abstract class CI_DB_driver {
 
 	/**
-	 * Data Source Name / Connect string
+	 * Data source Name / Connect string
 	 *
 	 * @var	string
 	 */
@@ -81,14 +81,14 @@ abstract class CI_DB_driver {
 	public $hostname;
 
 	/**
-	 * Database name
+	 * database name
 	 *
 	 * @var	string
 	 */
 	public $database;
 
 	/**
-	 * Database driver
+	 * database driver
 	 *
 	 * @var	string
 	 */
@@ -138,7 +138,7 @@ abstract class CI_DB_driver {
 	public $swap_pre		= '';
 
 	/**
-	 * Database port
+	 * database port
 	 *
 	 * @var	int
 	 */
@@ -372,13 +372,13 @@ abstract class CI_DB_driver {
 			}
 		}
 
-		log_message('info', 'Database Driver Class Initialized');
+		log_message('info', 'database Driver Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Initialize Database Settings
+	 * Initialize database Settings
 	 *
 	 * @return	bool
 	 */
@@ -554,7 +554,7 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database version number
+	 * database version number
 	 *
 	 * Returns a string containing the version of the database being used.
 	 * Most drivers will override this method.
@@ -682,7 +682,7 @@ abstract class CI_DB_driver {
 					$this->trans_complete();
 					if ($trans_depth === $this->_trans_depth)
 					{
-						log_message('error', 'Database: Failure during an automated transaction commit/rollback!');
+						log_message('error', 'database: Failure during an automated transaction commit/rollback!');
 						break;
 					}
 				}

@@ -80,7 +80,7 @@ class CI_Migration {
 	protected $_migration_version = 0;
 
 	/**
-	 * Database table with migration info
+	 * database table with migration info
 	 *
 	 * @var string
 	 */
