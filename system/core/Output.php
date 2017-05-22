@@ -494,7 +494,7 @@ class CI_Output {
 				}
 				else
 				{
-					// User agent doesn't support gzip compression,
+					// Login agent doesn't support gzip compression,
 					// so we'll have to decompress our cache
 					$output = gzinflate(self::substr($output, 10, -8));
 				}

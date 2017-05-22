@@ -122,14 +122,14 @@ $config['subclass_prefix'] = 'MY_';
 |--------------------------------------------------------------------------
 |
 | Enabling this setting will tell CodeIgniter to look for a Composer
-| package auto-loader script in application/vendor/autoload.php.
+| package auto-loader script in application/vendors/autoload.php.
 |
 |	$config['composer_autoload'] = TRUE;
 |
-| Or if you have your vendor/ directory located somewhere else, you
+| Or if you have your vendors/ directory located somewhere else, you
 | can opt to set a specific path as well:
 |
-|	$config['composer_autoload'] = '/path/to/vendor/autoload.php';
+|	$config['composer_autoload'] = '/path/to/vendors/autoload.php';
 |
 | For more information about Composer, please visit http://getcomposer.org/
 |

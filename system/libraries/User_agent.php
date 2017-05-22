@@ -38,13 +38,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * User Agent Class
+ * Login Agent Class
  *
  * Identifies the platform, browser, robot, or mobile device of the browsing agent
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
- * @category	User Agent
+ * @category	Login Agent
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/libraries/user_agent.html
  */
@@ -167,7 +167,7 @@ class CI_User_agent {
 	/**
 	 * Constructor
 	 *
-	 * Sets the User Agent and runs the compilation routine
+	 * Sets the Login Agent and runs the compilation routine
 	 *
 	 * @return	void
 	 */
@@ -181,13 +181,13 @@ class CI_User_agent {
 			$this->_compile_data();
 		}
 
-		log_message('info', 'User Agent Class Initialized');
+		log_message('info', 'Login Agent Class Initialized');
 	}
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile the User Agent Data
+	 * Compile the Login Agent Data
 	 *
 	 * @return	bool
 	 */
@@ -245,7 +245,7 @@ class CI_User_agent {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile the User Agent Data
+	 * Compile the Login Agent Data
 	 *
 	 * @return	bool
 	 */
