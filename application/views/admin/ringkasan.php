@@ -7,4 +7,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 18.35
  */
 ?>
-Admin
+<!doctype html>
+<html>
+    <?php require 'assets/head.php'; ?>
+    <body>
+        <div class="container">
+            <?php require 'assets/header.php'; ?>
+            Ringkasan Admin
+            <?php require 'assets/footer.php'; ?>
+        </div>
+    </body>
+</html>
