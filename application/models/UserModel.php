@@ -7,6 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 18.49
  */
 class UserModel extends CI_Model{
-
+    public function cek_user($data){
+        return $this->db->get_where('user', $data);
+    }
 }
 ?>
