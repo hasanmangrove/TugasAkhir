@@ -10,13 +10,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema sekolahku
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `sekolahku` ;
+DROP SCHEMA IF EXISTS `camara` ;
 
 -- -----------------------------------------------------
 -- Schema sekolahku
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `sekolahku` DEFAULT CHARACTER SET latin1 ;
-USE `sekolahku` ;
+CREATE SCHEMA IF NOT EXISTS `camara` DEFAULT CHARACTER SET latin1 ;
+USE `camara` ;
 
 -- -----------------------------------------------------
 -- Table `sekolahku`.`aset_bangunan`

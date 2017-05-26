@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="scroll active"><a href="?page=home">Home</a></li>
+                    <li class="scroll active"><a href="?page=home">Beranda</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profil <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         </ul>
@@ -59,8 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li><a href="#"> Link</a></li>
                         </ul>
                     </li>
-                    <li class=""><a href="#features">Question</a></li>
-                    <li class="scroll"><a href="#services">Download</a></li>
+                    <li class="scroll"><a href="<?php echo base_url('login'); ?>">Login</a></li>
                     <!--
                    <li class="scroll"><a href="#services">Services</a></li>
                     <li class="scroll"><a href="#portfolio">Portfolio</a></li>
