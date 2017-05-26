@@ -43,7 +43,7 @@ no-repeat center center fixed; background-size: cover;
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <!-- <p class="login-box-msg"><b>Masukkan username dan password !</b></p>-->
-        <form action="cek-log" method="POST">
+        <form action="<?php echo base_url('login/cek_login'); ?>" method="POST">
             <div class="form-group has-feedback">
                 <input type="text" name="username" class="form-control" placeholder="Username">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>

@@ -24,41 +24,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <li class="scroll active"><a href="?page=home">Beranda</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profil <b class="caret"></b></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Data Pokok <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="?guru=direktori_guru"> Data Sekolah</a></li>
+                            <li><a href=""> Data Peserta Didik</a></li>
+                            <li><a href="?guru=prestasi_guru"> Data Rombel</a></li>
+                            <li><a href="#"> Data Pegawai</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Guru <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="?guru=direktori_guru"> Direktori Guru</a></li>
-                            <li><a href=""> Kurikulum</a></li>
-                            <li><a href="?guru=prestasi_guru"> Prestasi Guru</a></li>
-                            <li><a href="#"> Kalender Akademik</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Siswa <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="?siswa=direktori_siswa"> Direktori Siswa</a></li>
-                            <li><a href="?siswa=prestasi_siswa"> Prestasi Siswa</a></li>
-                            <li><a href="#"> Keadaan Siswa</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Alumni <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="?alumni=direktori_alumni"> Direktori Alumni</a></li>
-                            <li><a href="?alumni=info_alumni"> Info Alumni</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Fitur <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"> Agenda</a></li>
-                            <li><a href="?fitur=artikel"> Artikel</a></li>
-                            <li><a href="?fitur=berita"> Berita</a></li>
-                            <li><a href="#"> Galery Photo</a></li>
-                            <li><a href="#"> Galery Video</a></li>
-                            <li><a href="#"> Link</a></li>
-                        </ul>
-                    </li>
+                    <li class="scroll"><a href="#">Pertumbuhan Data</a></li>
                     <li class="scroll"><a href="<?php echo base_url('login'); ?>">Login</a></li>
                     <!--
                    <li class="scroll"><a href="#services">Services</a></li>
