@@ -7,6 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 18.54
  */
 class AdminModel extends CI_Model{
-
+    public function lihat_user(){
+        return $this->db->get('v_user');
+    }
 }
 ?>

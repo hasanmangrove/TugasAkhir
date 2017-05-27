@@ -8,9 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Petugas extends CI_Controller{
 
-    public function __construct() {
+    function __construct() {
         parent::__construct();
-        if (!($this->session->userdata('level') == 0)) {
+        if (!($this->session->userdata('level') === '0')) {
             if (!$this->session->userdata('username')){
                 redirect('login');
             }
@@ -19,14 +19,16 @@ class Petugas extends CI_Controller{
     }
 
     public function index(){
-        $this->load->view('petugas/ringkasan');
+        $this->load->view('petugas/dashboard');
     }
     function logout() {
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('level');
         $this->session->unset_userdata('Nama');
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('npsn');
         session_destroy();
-        redirect('login');
+        redirect('');
     }
 }
 ?>

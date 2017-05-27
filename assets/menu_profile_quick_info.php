@@ -14,5 +14,6 @@
     <div class="profile_info">
         <span>Selamat datang,</span>
         <h2><?php echo $this->session->userdata('Nama'); ?></h2>
+        <h5><?php echo $this->session->userdata('npsn'); ?></h5>
     </div>
 </div>

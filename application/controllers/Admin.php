@@ -10,19 +10,21 @@ class Admin extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!($this->session->userdata('level') == 1)) {
+        if (!($this->session->userdata('level') === '1')) {
             if (!$this->session->userdata('username')){
                 redirect('login');
             }
             redirect('login');
         }
+        $this->load->model('AdminModel');
     }
 
     function index(){
-        $this->load->view('admin/ringkasan');
+        $this->load->view('admin/dashboard');
     }
 
     function user(){
+
         $this->load->view('admin/user');
     }
 
@@ -35,7 +37,8 @@ class Admin extends CI_Controller {
     }
 
     function lihat_user(){
-        $this->load->view('admin/lihat_user');
+        $data['user'] = $this->AdminModel->lihat_user()->result();
+        $this->load->view('admin/lihat_user', $data);
     }
 
     function tambah_user(){
@@ -73,8 +76,11 @@ class Admin extends CI_Controller {
     function logout() {
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('level');
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('npsn');
+        $this->session->unset_userdata('Nama');
         session_destroy();
-        redirect('login');
+        redirect('');
     }
 }
 ?>

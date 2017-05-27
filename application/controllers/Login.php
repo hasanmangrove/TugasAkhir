@@ -33,6 +33,7 @@ class Login extends CI_Controller{
                     $sess_data['Nama'] = $sess->Nama;
                     $sess_data['username'] = $sess->username;
                     $sess_data['level'] = $sess->level;
+                    $sess_data['npsn'] = $sess->npsn;
                     $this->session->set_userdata($sess_data);
                 }
                 if ($this->session->userdata('level') == 1){

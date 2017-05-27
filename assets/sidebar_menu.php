@@ -19,5 +19,5 @@ if ($level == 'admin' || $level == 'Admin') {
 
     require 'sidebar_menu_petugas.php';
 
-} else
+}
 ?>
