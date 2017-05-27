@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head><!--/head-->
 
 <body id="home" class="homepage">
-<?php require 'assets/navigasi1.php'?>
+<?php require 'assets/navigasi_public.php'?>
 
 <?php require 'assets/slideshow.php'?>
 

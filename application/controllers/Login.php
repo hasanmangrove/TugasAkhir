@@ -30,6 +30,7 @@ class Login extends CI_Controller{
 
                 foreach ($hasil->result() as $sess){
                     $sess_data['logged_in'] = 'Sudah Login';
+                    $sess_data['Nama'] = $sess->Nama;
                     $sess_data['username'] = $sess->username;
                     $sess_data['level'] = $sess->level;
                     $this->session->set_userdata($sess_data);

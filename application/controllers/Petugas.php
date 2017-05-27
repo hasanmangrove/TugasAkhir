@@ -24,6 +24,7 @@ class Petugas extends CI_Controller{
     function logout() {
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('level');
+        $this->session->unset_userdata('Nama');
         session_destroy();
         redirect('login');
     }
