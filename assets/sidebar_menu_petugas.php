@@ -15,28 +15,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </li>
             <li><a><i class="fa fa-mortar-board"></i> Sekolah <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="form.html">Ringkasan</a></li>
-                    <li><a href="form.html">Profil</a></li>
-                    <li><a href="form_advanced.html">Aset Bangunan</a></li>
-                    <li><a href="form_validation.html">Aset Tanah</a></li>
-                    <li><a href="form_buttons.html">Jurusan</a></li>
-                    <li><a href="form_upload.html">Siswa</a></li>
-                    <li><a href="form_upload.html">Sarana Prasarana</a></li>
+                    <li><a href="<?php echo base_url('petugas/sekolah'); ?>">Ringkasan</a></li>
+                    <li><a href="<?php echo base_url('petugas/profil_sekolah'); ?>">Profil</a></li>
+                    <li><a href="<?php echo base_url('petugas/bangunan'); ?>">Aset Bangunan</a></li>
+                    <li><a href="<?php echo base_url('petugas/tanah'); ?>">Aset Tanah</a></li>
+                    <li><a href="<?php echo base_url('petugas/jurusan'); ?>">Jurusan</a></li>
+                    <li><a href="<?php echo base_url('petugas/siswa'); ?>">Siswa</a></li>
+                    <li><a href="<?php echo base_url('petugas/sarana'); ?>">Sarana Prasarana</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-group"></i> Struktur <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="general_elements.html">Ringkasan</a></li>
-                    <li><a href="media_gallery.html">Kepala Sekolah</a></li>
-                    <li><a href="typography.html">Wakil Kepsek</a></li>
-                    <li><a href="icons.html">Guru</a></li>
-                    <li><a href="glyphicons.html">Tenaga Pendidikan</a></li>
+                    <li><a href="<?php echo base_url('petugas/struktur'); ?>">Ringkasan</a></li>
+                    <li><a href="<?php echo base_url('petugas/kepsek'); ?>">Kepala Sekolah</a></li>
+                    <li><a href="<?php echo base_url('petugas/wakasek'); ?>">Wakil Kepsek</a></li>
+                    <li><a href="<?php echo base_url('petugas/guru'); ?>">Guru</a></li>
+                    <li><a href="<?php echo base_url('petugas/tenaga_pendidikan'); ?>">Tenaga Pendidikan</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-trophy"></i> Prestasi <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="tables.html">Ringkasan</a></li>
-                    <li><a href="tables_dynamic.html">Tambah Prestasi</a></li>
+                    <li><a href="<?php echo base_url('petugas/prestasi'); ?>">Ringkasan</a></li>
+                    <li><a href="<?php echo base_url('petugas/tambah_prestasi'); ?>">Tambah Prestasi</a></li>
                 </ul>
             </li>
         </ul>
