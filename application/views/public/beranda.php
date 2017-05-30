@@ -23,9 +23,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url('assets/css/owl.transitions.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/prettyPhoto.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/main.css'); ?>" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="<?php echo base_url('assets/img/ico/favicon.ico'); ?>">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url('assets/img/ico/apple-touch-icon-144-precomposed.png'); ?>">

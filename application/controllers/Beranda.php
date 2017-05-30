@@ -7,8 +7,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 18.32
  */
 class Beranda extends CI_Controller{
-    public function index(){
+
+    function index(){
         $this->load->view('public/beranda');
     }
+
+    function pertumbuhan(){
+        $this->load->view('public/pertumbuhan');
+    }
+
+    function sekolah(){
+        $this->load->view('public/sekolah');
+    }
+
+    function siswa(){
+        $this->load->view('public/siswa');
+    }
+
+    function rombel(){
+        $this->load->view('public/rombel');
+    }
+
+    function pegawai(){
+        $this->load->view('public/pegawai');
+    }
+
+    function tentang(){
+        $this->load->view('public/tentang');
+    }
+
 }
 ?>

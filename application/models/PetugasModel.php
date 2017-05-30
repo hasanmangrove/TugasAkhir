@@ -24,5 +24,45 @@ class PetugasModel extends CI_Model {
         $this->db->where($where);
         return $this->db->get('aset_bangunan');
     }
+
+    function asetTanah($where){
+        $this->db->where($where);
+        return $this->db->get('aset_tanah');
+    }
+
+    function jurusan($where){
+        $this->db->where($where);
+        return $this->db->get('jurusan');
+    }
+
+    function siswa($where){
+        $this->db->where($where);
+        return $this->db->get('siswa');
+    }
+
+    function sarana($where){
+        $this->db->where($where);
+        return $this->db->get('sarpras');
+    }
+
+    function kepsek($where){
+        $this->db->where($where);
+        return $this->db->get('kepsek');
+    }
+
+    function wakasek($where){
+        $this->db->where($where);
+        return $this->db->get('wakasek');
+    }
+
+    function guru($where){
+        $this->db->where($where);
+        return $this->db->get('data_guru');
+    }
+
+    function tenagaPendidikan($where){
+        $this->db->where($where);
+        return $this->db->get('tenkependik');
+    }
 }
 ?>

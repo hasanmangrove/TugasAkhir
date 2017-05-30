@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3">Tanggal Berdiri</label>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <input type="text" class="form-control" data-inputmask="'mask': '9999-19-39'" value="<?php echo $profil[0]->tgl_pendirian; ?>">
+                                                <input type="text" class="form-control" data-inputmask="'mask': '9999-99-99'" name="tgl_pendirian" value="<?php echo $profil[0]->tgl_pendirian; ?>">
                                                 <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
                                             </div>
                                         </div>

@@ -39,39 +39,65 @@ class Petugas extends CI_Controller{
     }
 
     function tanah(){
-        $this->load->view('petugas/tanah');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['aset_tanah'] = $this->PetugasModel->asetTanah($where)->result();
+        $this->load->view('petugas/tanah', $data);
     }
 
     function jurusan(){
-        $this->load->view('petugas/jurusan');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['jurusan'] = $this->PetugasModel->jurusan($where)->result();
+        $this->load->view('petugas/jurusan', $data);
     }
 
     function siswa(){
-        $this->load->view('petugas/siswa');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['siswa'] = $this->PetugasModel->siswa($where)->result();
+        $this->load->view('petugas/siswa', $data);
     }
 
     function sarana(){
-        $this->load->view('petugas/sarana');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['sarana'] = $this->PetugasModel->sarana($where)->result();
+        $this->load->view('petugas/sarana', $data);
     }
 
     function struktur(){
-        $this->load->view('petugas/struktur');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $this->load->view('petugas/struktur', $data);
     }
 
     function kepsek(){
-        $this->load->view('petugas/kepsek');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['kepsek'] = $this->PetugasModel->kepsek($where)->result();
+        $this->load->view('petugas/kepsek', $data);
     }
 
     function wakasek(){
-        $this->load->view('petugas/wakasek');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['wakasek'] = $this->PetugasModel->wakasek($where)->result();
+        $this->load->view('petugas/wakasek', $data);
     }
 
     function guru(){
-        $this->load->view('petugas/guru');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['guru'] = $this->PetugasModel->guru($where)->result();
+        $this->load->view('petugas/guru', $data);
     }
 
     function tenaga_pendidikan(){
-        $this->load->view('petugas/tenaga_pendidikan');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['tenaga_pendidikan'] = $this->PetugasModel->tenagaPendidikan($where)->result();
+        $this->load->view('petugas/tenaga_pendidikan', $data);
     }
 
     function prestasi(){

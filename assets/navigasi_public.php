@@ -26,13 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li class="scroll active"><a href="<?php echo base_url(''); ?>">Beranda</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Data Pokok <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="?guru=direktori_guru"> Data Sekolah</a></li>
-                            <li><a href=""> Data Peserta Didik</a></li>
-                            <li><a href="?guru=prestasi_guru"> Data Rombel</a></li>
-                            <li><a href="#"> Data Pegawai</a></li>
+                            <li><a href="<?php echo base_url('beranda/sekolah'); ?>"> Data Sekolah</a></li>
+                            <li><a href="<?php echo base_url('beranda/siswa'); ?>"> Data Peserta Didik</a></li>
+                            <li><a href="<?php echo base_url('beranda/rombel'); ?>"> Data Rombel</a></li>
+                            <li><a href="<?php echo base_url('beranda/pegawai'); ?>"> Data Pegawai</a></li>
                         </ul>
                     </li>
-                    <li class="scroll"><a href="#">Pertumbuhan Data</a></li>
+                    <li class="scroll"><a href="<?php echo base_url('beranda/pertumbuhan'); ?>">Pertumbuhan Data</a></li>
+                    <li class="scroll"><a href="<?php echo base_url('beranda/tentang'); ?>">Tentang</a></li>
                     <?php
                         if($this->session->userdata('level') === '1'){?>
                             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello, <?php echo $this->session->userdata('Nama'); ?> <b class="caret"></b></a>
@@ -44,12 +45,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </ul>
                             </li>
                         <?php } elseif ($this->session->userdata('level') === '0'){ ?>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello, <?php echo $this->session->userdata('Nama'); ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                    <li><a href="<?php echo base_url('admin/profil'); ?>"> Profil</a></li>
+                                    <li><a href="<?php echo base_url('petugas/profil'); ?>"> Profil</a></li>
                                     <li><a href="<?php echo base_url('petugas/pengaturan'); ?>"> Pengaturan</a></li>
                                     <li><a href="<?php echo base_url('petugas/bantuan'); ?>"> Bantuan</a></li>
                                     <li><a href="<?php echo base_url('petugas/logout'); ?>"> Keluar</a></li>
                                 </ul>
+                            </li>
                         <?php } else {?>
                             <li class="scroll"><a href="<?php echo base_url('login'); ?>">Login</a></li>
                         <?php }
