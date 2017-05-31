@@ -2,13 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
- * User: Mangrove
- * Date: 27/05/2017
- * Time: 21.53
+ * User: mangrove
+ * Date: 5/31/2017
+ * Time: 5:11 PM
  */
 ?>
 
-
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Created by PhpStorm.
+ * Login: Mangrove
+ * Date: 22/05/2017
+ * Time: 18.31
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Petugas - Sekolahku</title>
+    <title>Beranda - Sekolahku </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets'); ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,25 +57,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="<?php echo base_url(''); ?>" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                    <a href="<?php echo base_url('beranda'); ?>" class="site_title"><i class="fa fa-paw"></i> <span>Sekolahku</span></a>
                 </div>
 
                 <div class="clearfix"></div>
 
-                <!-- menu profile quick info -->
-                <?php require 'assets/menu_profile_quick_info.php'; ?>
-                <!-- /menu profile quick info -->
-
                 <br />
 
                 <!-- sidebar menu -->
-                <?php require 'assets/sidebar_menu.php'; ?>
+                <?php require 'assets/sidebar_menu.php'?>
                 <!-- /sidebar menu -->
             </div>
         </div>
 
         <!-- top navigation -->
-        <?php require 'assets/top_navigation.php'; ?>
+        <?php require 'assets/top_navigation.php'?>
         <!-- /top navigation -->
 
         <!-- page content -->
@@ -75,76 +79,64 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Aset Bangunan</h3>
+                        <h3>beranda/kontak</h3>
                     </div>
                 </div>
-                <div class="clearfix"></div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-xs-12 center-margin">
                         <div class="x_panel">
-                            <div class="x_title">
-                                <h2><?php echo $profil[0]->nama_sekolah; ?></h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Settings 1</a>
-                                            </li>
-                                            <li><a href="#">Settings 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="x_content">
-                                <p class="text-muted font-13 m-b-30">
-                                    The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                                </p>
-                                <table id="datatable-buttons" class="table table-striped table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Tahun Ajaran</th>
-                                        <th>Jenis Prestasi</th>
-                                        <th>Level</th>
-                                        <th>Hasil</th>
-                                        <th>Keterangan</th>
-                                        <th>Pemegang</th>
-                                        <th>Tanggal Pelaksanaan</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $no = 0;
-                                    foreach ($prestasi as $i){ ?>
-                                        <tr>
-                                            <td><?php echo ++$no; ?></td>
-                                            <td><?php echo $i->thn_ajaran; ?></td>
-                                            <td><?php echo $i->jns_prestasi; ?></td>
-                                            <td><?php echo $i->level; ?></td>
-                                            <td><?php echo $i->hasil; ?></td>
-                                            <td><?php echo $i->ket; ?></td>
-                                            <td><?php echo $i->pemegang; ?></td>
-                                            <td><?php echo $i->tgl_plaksanaan; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
+                                <br />
+                                <form class="form-horizontal form-label-left">
+                                    <!-- Nama -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" class="form-control" placeholder="Nama" name="nama">
+                                        </div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" class="form-control" placeholder="Email" name="email">
+                                        </div>
+                                    </div>
+
+                                    <!-- Subjek -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Subjek</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" class="form-control" placeholder="Subjek" name="subjek">
+                                        </div>
+                                    </div>
+
+                                    <!-- Isi -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Isi</span>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <textarea class="form-control" rows="3" placeholder='Masukkan pesan...'></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                            <button type="reset" class="btn btn-primary">Reset</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
+
         <!-- /page content -->
 
         <!-- footer content -->
-        <?php require 'assets/footer_content.php'; ?>
+        <?php require 'assets/footer_content.php'?>
         <!-- /footer content -->
     </div>
 </div>
@@ -170,8 +162,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets'); ?>/vendors/google-code-prettify/src/prettify.js"></script>
 <!-- jQuery Tags Input -->
 <script src="<?php echo base_url('assets'); ?>/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-<!-- jquery.inputmask -->
-<script src="<?php echo base_url('assets'); ?>/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 <!-- Switchery -->
 <script src="<?php echo base_url('assets'); ?>/vendors/switchery/dist/switchery.min.js"></script>
 <!-- Select2 -->
@@ -186,8 +176,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets'); ?>/vendors/starrr/dist/starrr.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url('assets'); ?>/build/js/custom.min.js"></script>
-
 </body>
 </html>
-
-

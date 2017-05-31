@@ -19,5 +19,7 @@ if ($level == 'admin' || $level == 'Admin') {
 
     require 'sidebar_menu_petugas.php';
 
+} else {
+    require 'sidebar_menu_public.php';
 }
 ?>

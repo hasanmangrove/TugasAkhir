@@ -64,5 +64,10 @@ class PetugasModel extends CI_Model {
         $this->db->where($where);
         return $this->db->get('tenkependik');
     }
+
+    function prestasi($where){
+        $this->db->where($where);
+        return $this->db->get('prestasi');
+    }
 }
 ?>

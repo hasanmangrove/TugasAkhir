@@ -17,10 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav child_menu">
                     <li><a href="<?php echo base_url('admin/user'); ?>">Ringkasan</a></li>
                     <li><a href="<?php echo base_url('admin/lihat_user'); ?>">Lihat User</a></li>
-                    <li><a href="<?php echo base_url('admin/tambah_user'); ?>">Tambah User</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-database"></i> Database <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-university"></i> Sekolah <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo base_url('admin/database'); ?>">Ringkasan</a></li>
                     <li><a href="<?php echo base_url('admin/sekolah'); ?>">Data Sekolah</a></li>

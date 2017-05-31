@@ -19,5 +19,9 @@ if ($level == 'admin' || $level == 'Admin') {
 
     require 'top_navigation_petugas.php';
 
+} else{
+
+    require 'top_navigation_public.php';
+
 }
 ?>

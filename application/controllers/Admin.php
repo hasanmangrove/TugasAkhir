@@ -41,8 +41,8 @@ class Admin extends CI_Controller {
         $this->load->view('admin/lihat_user', $data);
     }
 
-    function tambah_user(){
-        $this->load->view('admin/tambah_user');
+    function tambahUser(){
+
     }
 
     function sekolah(){

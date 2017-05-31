@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <section id="main-slider" style="height:461px;margin-top:20px;">
     <div class="owl-carousel">
-        <div class="item" style="background-image: url(<?php echo base_url('assets/img/slider/bg1.jpg'); ?>);no-repeat center center fixed; background-size: cover;
+        <div class="item" style="background-image: url(<?php echo base_url('assets/images/slider/bg1.jpg'); ?>);no-repeat center center fixed; background-size: cover;
  -webkit-background-size: cover;
  -moz-background-size: cover; -o-background-size: cover;">
             <div class="slider-inner">
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div><!--/.item-->
-        <div class="item" style="background-image: url(<?php echo base_url('assets/img/slider/bg2.jpg'); ?>);">
+        <div class="item" style="background-image: url(<?php echo base_url('assets/images/slider/bg2.jpg'); ?>);">
             <div class="slider-inner">
                 <div class="container">
                     <div class="row">

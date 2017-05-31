@@ -101,7 +101,10 @@ class Petugas extends CI_Controller{
     }
 
     function prestasi(){
-        $this->load->view('petugas/prestasi');
+        $where = array('npsn' => $this->session->userdata('npsn'));
+        $data['profil'] = $this->PetugasModel->profilSekolah($where)->result();
+        $data['prestasi'] = $this->PetugasModel->prestasi($where)->result();
+        $this->load->view('petugas/prestasi', $data);
     }
 
     function tambah_prestasi(){

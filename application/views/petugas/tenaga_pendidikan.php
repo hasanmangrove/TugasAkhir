@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Petugas - Sekolahku</title>
+    <title>Admin - Sekolahku</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets'); ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,16 +28,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url('assets'); ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="<?php echo base_url('assets'); ?>/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-wysiwyg -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
-    <!-- Select2 -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-    <!-- Switchery -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-    <!-- starrr -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/starrr/dist/starrr.css" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="<?php echo base_url('assets'); ?>/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets'); ?>/build/css/custom.min.css" rel="stylesheet">
@@ -102,7 +98,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-
+                                <p class="text-muted font-13 m-b-30">
+                                    The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                                </p>
+                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tahun Ajaran</th>
+                                        <th>NBM</th>
+                                        <th>Jabatan</th>
+                                        <th>Nama</th>
+                                        <th>NIP</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal lahir</th>
+                                        <th>Telepon</th>
+                                        <th>Email</th>
+                                        <th>Pangkat</th>
+                                        <th>Tanggal Pengangkatan</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Status Pegawai</th>
+                                        <th>Organisasi</th>
+                                        <th>Alamat</th>
+                                        <th>RT/RW</th>
+                                        <th>Kelurahan</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kabupaten</th>
+                                        <th>Provinsi</th>
+                                        <th>Pendidikan Terakhir</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $no = 0;
+                                    foreach ($tenaga_pendidikan as $i){ ?>
+                                        <tr>
+                                            <td><?php echo ++$no; ?></td>
+                                            <td><?php echo $i->tahun_ajaran; ?></td>
+                                            <td><?php echo $i->nbm; ?></td>
+                                            <td><?php echo $i->jabatan; ?></td>
+                                            <td><?php echo $i->nama; ?></td>
+                                            <td><?php echo $i->nip; ?></td>
+                                            <td><?php echo $i->tempat_lhr; ?></td>
+                                            <td><?php echo $i->tgl_lhr; ?></td>
+                                            <td><?php echo $i->telepon; ?></td>
+                                            <td><?php echo $i->email; ?></td>
+                                            <td><?php echo $i->pangkat; ?></td>
+                                            <td><?php echo $i->tgl_pengangkatan; ?></td>
+                                            <td><?php echo $i->jk; ?></td>
+                                            <td><?php echo $i->status_pegawai; ?></td>
+                                            <td><?php echo $i->organisasi; ?></td>
+                                            <td><?php echo $i->alamat; ?></td>
+                                            <td><?php echo $i->rt_rw; ?></td>
+                                            <td><?php echo $i->kel; ?></td>
+                                            <td><?php echo $i->kec; ?></td>
+                                            <td><?php echo $i->kab; ?></td>
+                                            <td><?php echo $i->prov; ?></td>
+                                            <td><?php echo $i->pnd_thr; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -125,33 +181,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets'); ?>/vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
 <script src="<?php echo base_url('assets'); ?>/vendors/nprogress/nprogress.js"></script>
-<!-- bootstrap-progressbar -->
-<script src="<?php echo base_url('assets'); ?>/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 <!-- iCheck -->
 <script src="<?php echo base_url('assets'); ?>/vendors/iCheck/icheck.min.js"></script>
-<!-- bootstrap-daterangepicker -->
-<script src="<?php echo base_url('assets'); ?>/vendors/moment/min/moment.min.js"></script>
-<script src="<?php echo base_url('assets'); ?>/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap-wysiwyg -->
-<script src="<?php echo base_url('assets'); ?>/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-<script src="<?php echo base_url('assets'); ?>/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-<script src="<?php echo base_url('assets'); ?>/vendors/google-code-prettify/src/prettify.js"></script>
-<!-- jQuery Tags Input -->
-<script src="<?php echo base_url('assets'); ?>/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-<!-- jquery.inputmask -->
-<script src="<?php echo base_url('assets'); ?>/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-<!-- Switchery -->
-<script src="<?php echo base_url('assets'); ?>/vendors/switchery/dist/switchery.min.js"></script>
-<!-- Select2 -->
-<script src="<?php echo base_url('assets'); ?>/vendors/select2/dist/js/select2.full.min.js"></script>
-<!-- Parsley -->
-<script src="<?php echo base_url('assets'); ?>/vendors/parsleyjs/dist/parsley.min.js"></script>
-<!-- Autosize -->
-<script src="<?php echo base_url('assets'); ?>/vendors/autosize/dist/autosize.min.js"></script>
-<!-- jQuery autocomplete -->
-<script src="<?php echo base_url('assets'); ?>/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-<!-- starrr -->
-<script src="<?php echo base_url('assets'); ?>/vendors/starrr/dist/starrr.js"></script>
+<!-- Datatables -->
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/jszip/dist/jszip.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/vfs_fonts.js"></script>
+
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url('assets'); ?>/build/js/custom.min.js"></script>
 

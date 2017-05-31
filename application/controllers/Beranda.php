@@ -20,6 +20,10 @@ class Beranda extends CI_Controller{
         $this->load->view('public/sekolah');
     }
 
+    function data(){
+        $this->load->view('public/data');
+    }
+
     function siswa(){
         $this->load->view('public/siswa');
     }
@@ -34,6 +38,10 @@ class Beranda extends CI_Controller{
 
     function tentang(){
         $this->load->view('public/tentang');
+    }
+
+    function kontak(){
+        $this->load->view('public/kontak');
     }
 
 }
