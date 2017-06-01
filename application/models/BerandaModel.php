@@ -35,4 +35,19 @@ class BerandaModel extends CI_Model{
     function getKecamatan(){
         return $this->db->get('kecamatan');
     }
+
+    function getSekolahProv($id){
+        $query = $this->db->query(
+            "SELECT COUNT(jenjang), jenjang FROM profil WHERE prov=$id GROUP BY jenjang;"
+        );
+        return $query;
+    }
+
+    function getSekolahKab($id){
+
+    }
+
+    function getSekolahKec($id){
+
+    }
 }
