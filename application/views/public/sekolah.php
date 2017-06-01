@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Beranda - Sekolahku</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets'); ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,6 +29,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets'); ?>/build/css/custom.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        $.(document).ready(function () {
+            $("#provinsi").change(function () {
+                var id_provinsi = $("#id_provinsi").val();
+                $.ajax({
+                    type    : "POST",
+                    url     : "<?php echo base_url(); ?>beranda/ambil_data",
+                    data    : "id_provinsi" + id_provinsi,
+                    success : function (data) {
+                        $("#kabupaten").html(data);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body class="nav-md">
@@ -74,7 +89,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
+                                <br />
+                                <?php
+                                $attributes = array('class' => 'form-horizontal form-label-left');
+                                echo form_open('cari_sekolah', $attributes);
+                                ?>
 
+                                    <!-- Provinsi -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Provinsi</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select class="form-control" name="prov" id="provinsi">
+                                                <option value="0">Pilih Provinsi</option>
+                                                <?php
+                                                foreach ($provinsi as $i){
+                                                    echo "<option value='$i[id_provinsi]'>$i[nama]</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Kabupaten -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kabupaten</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select class="form-control" name="kab" id="kabupaten">
+                                                <option value="0">Pilih Kabupaten</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Kecamatan -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kecamatan</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select class="form-control" name="kec" id="kecamatan">
+                                                <option value="0">Pilih Kecamatan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                            <button type="reset" class="btn btn-primary">Reset</button>
+                                            <button type="submit" class="btn btn-success">Cari Sekolah</button>
+                                        </div>
+                                    </div>
+
+                                <?php echo form_close(); ?>
                             </div>
                         </div>
                     </div>
@@ -91,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                Add content to the page ...
+
                             </div>
                         </div>
                     </div>

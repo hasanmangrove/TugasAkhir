@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
  * User: mangrove
- * Date: 5/29/2017
- * Time: 11:36 PM
+ * Date: 5/31/2017
+ * Time: 6:43 PM
  */
 ?>
 
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>/beranda/rombel</h3>
+                        <h3>/beranda/sekolah</h3>
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="form-group">
                                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                             <button type="reset" class="btn btn-primary">Reset</button>
-                                            <button type="submit" class="btn btn-success">Cari Rombel</button>
+                                            <button type="submit" class="btn btn-success">Cari Sekolah</button>
                                         </div>
                                     </div>
 

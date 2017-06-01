@@ -20,6 +20,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a href="<?php echo base_url('beranda/siswa'); ?>">Data Peserta Didik</a></li>
                     <li><a href="<?php echo base_url('beranda/rombel'); ?>">Data Rombel</a></li>
                     <li><a href="<?php echo base_url('beranda/pegawai'); ?>">Data Pegawai</a></li>
+                    <li><a href="<?php echo base_url('beranda/prestasi'); ?>">Data Prestasi</a></li>
+                    <li><a href="<?php echo base_url('beranda/guru'); ?>">Data Guru</a></li>
+                    <li><a href="<?php echo base_url('beranda/kepsek'); ?>">Data Kepala Sekolah</a></li>
+                    <li><a href="<?php echo base_url('beranda/wakasek'); ?>">Data Wakil Kepala Sekolah</a></li>
                 </ul>
             </li>
             <li><a><i class="fa fa-bar-chart-o"></i> Pertumbuhan Data <span class="fa fa-chevron-down"></span></a>

@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 18.55
  */
 class PetugasModel extends CI_Model {
+
     function profilSekolah($where){
         $this->db->where($where);
         return $this->db->get('profil');

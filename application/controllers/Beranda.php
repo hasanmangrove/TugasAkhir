@@ -8,6 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Beranda extends CI_Controller{
 
+    function __construct(){
+        parent::__construct();
+
+        $this->load->model('BerandaModel');
+    }
+
     function index(){
         $this->load->view('public/beranda');
     }
@@ -17,7 +23,21 @@ class Beranda extends CI_Controller{
     }
 
     function sekolah(){
-        $this->load->view('public/sekolah');
+        $data['provinsi'] = $this->BerandaModel->provinsi();
+        $this->load->view('public/sekolah', $data);
+    }
+
+    function ambil_data(){
+        $id_provinsi = $this->input->post('id_provinsi');
+        $kabupaten = $this->BerandaModel->kabupaten($id_provinsi);
+        $data = "<option> value=''>--Pilih--</option>";
+        foreach ($kabupaten as $i){
+            $data .= "<option value='$i[id]'>$i[kabupaten]</option>\n";
+        }
+        echo $data;
+    }
+
+    function cari_sekolah(){
     }
 
     function data(){
@@ -42,6 +62,22 @@ class Beranda extends CI_Controller{
 
     function kontak(){
         $this->load->view('public/kontak');
+    }
+
+    function prestasi(){
+        $this->load->view('public/prestasi');
+    }
+
+    function guru(){
+        $this->load->view('public/guru');
+    }
+
+    function kepsek(){
+        $this->load->view('public/kepsek');
+    }
+
+    function wakasek(){
+        $this->load->view('public/wakasek');
     }
 
 }
