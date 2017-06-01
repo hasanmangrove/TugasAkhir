@@ -10,40 +10,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js'); ?>" type="text/javascript" charset="utf-8" async defer> </script><!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Beranda - Sekolahku</title>
+<title>Beranda - Sekolahku</title>
 
-    <!-- Bootstrap -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="<?php echo base_url('assets'); ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="<?php echo base_url('assets'); ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="<?php echo base_url('assets'); ?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="<?php echo base_url('assets'); ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="<?php echo base_url('assets'); ?>/build/css/custom.min.css" rel="stylesheet">
-    <script type="text/javascript">
-        $.(document).ready(function () {
-            $("#provinsi").change(function () {
-                var id_provinsi = $("#id_provinsi").val();
-                $.ajax({
-                    type    : "POST",
-                    url     : "<?php echo base_url(); ?>beranda/ambil_data",
-                    data    : "id_provinsi" + id_provinsi,
-                    success : function (data) {
-                        $("#kabupaten").html(data);
-                    }
-                });
+<!-- Custom Theme Style -->
+<link href="<?php echo base_url('assets'); ?>/build/css/custom.min.css" rel="stylesheet">
+<script type="text/javascript">
+    $.(document).ready(function () {
+        $("#provinsi").change(function () {
+            var id_provinsi = $("#id_provinsi").val();
+            $.ajax({
+                type    : "POST",
+                url     : "<?php echo base_url(); ?>beranda/ambil_data",
+                data    : "id_provinsi" + id_provinsi,
+                success : function (data) {
+                    $("#kabupaten").html(data);
+                }
             });
         });
-    </script>
+    });
+</script>
+
 </head>
 
 <body class="nav-md">
@@ -180,5 +181,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url('assets'); ?>/build/js/custom.min.js"></script>
+<script type="text/javascript">
+    $('select[name="prov"]').on('change', function(){
+        $.ajax({
+            type : 'POST',
+            url  : '<?php echo base_url('beranda/kabupaten') ?>',
+            data : {
+                prov : $(this).val()
+            },
+            success : function(option){
+                $('select[name="kab"]').html(option);
+            }
+        });
+    });
+    $('select[name="kab"]').on('change', function(){
+        $.ajax({
+            type : 'POST',
+            url  : '<?php echo base_url('beranda/kecamatan') ?>',
+            data : {
+                kab : $(this).val()
+            },
+            success : function(option){
+                $('select[name="kec"]').html(option);
+            }
+        });
+    });
+</script>
 </body>
 </html>

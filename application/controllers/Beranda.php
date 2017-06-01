@@ -80,5 +80,24 @@ class Beranda extends CI_Controller{
         $this->load->view('public/wakasek');
     }
 
+    function kabupaten(){
+        $kabupaten = $this->BerandaModel->getKabupatenbyProvinsi(
+            $this->input->post('prov')
+        );
+        echo '<option> Pilih Kabupaten </option>';
+        foreach ($kabupaten as $k){
+            echo "<option value='$k->id'>".$k->kabupaten."</option>";
+        }
+    }
+    function kecamatan(){
+        $kecamatan = $this->BerandaModel->getKecamatanbyKabupaten(
+            $this->input->post('kab')
+        );
+        echo '<option> Pilih Kecamatan </option>';
+        foreach ($kecamatan as $k){
+            echo "<option value='$k->kode_kec'>".$k->nama_kec."</option>";
+        }
+    }
+
 }
 ?>

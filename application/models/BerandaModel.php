@@ -35,6 +35,20 @@ class BerandaModel extends CI_Model{
     function getKecamatan(){
         return $this->db->get('kecamatan');
     }
+    function getKabupatenbyProvinsi($id_provinsi){
+        $this->db->select('*');
+        $this->db->from('kabupaten');
+        $this->db->where('id_provinsi',$id_provinsi);
+        $this->db->order_by('kabupaten', 'asc');
+        return $this->db->get()->result();
+    }
+    function getKecamatanbyKabupaten($id_kabupaten){
+        $this->db->select('*');
+        $this->db->from('kecamatan');
+        $this->db->where('kode_kab',$id_kabupaten);
+        $this->db->order_by('nama_kec', 'asc');
+        return $this->db->get()->result();
+    }
 
     function getSekolahProv($id){
         $query = $this->db->query(
