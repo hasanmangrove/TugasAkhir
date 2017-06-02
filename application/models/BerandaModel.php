@@ -23,8 +23,18 @@ class BerandaModel extends CI_Model{
     }
 
     function kabupaten($id_provinsi){
-        $this->db->where('id_provinsi', $$id_provinsi);
+        $this->db->where('id_provinsi', $id_provinsi);
         $result = $this->db->get('kabupaten');
+        if($result->num_rows() > 0){
+            return $result->result_array();
+        }else{
+            return array();
+        }
+    }
+
+    function kecamatan($id_kabupaten){
+        $this->db->where('kode_kab', $id_kabupaten);
+        $result = $this->db->get('kecamatan');
         if($result->num_rows() > 0){
             return $result->result_array();
         }else{
@@ -35,6 +45,7 @@ class BerandaModel extends CI_Model{
     function getKecamatan(){
         return $this->db->get('kecamatan');
     }
+
     function getKabupatenbyProvinsi($id_provinsi){
         $this->db->select('*');
         $this->db->from('kabupaten');
@@ -42,6 +53,7 @@ class BerandaModel extends CI_Model{
         $this->db->order_by('kabupaten', 'asc');
         return $this->db->get()->result();
     }
+
     function getKecamatanbyKabupaten($id_kabupaten){
         $this->db->select('*');
         $this->db->from('kecamatan');
@@ -50,18 +62,40 @@ class BerandaModel extends CI_Model{
         return $this->db->get()->result();
     }
 
-    function getSekolahProv($id){
-        $query = $this->db->query(
-            "SELECT COUNT(jenjang), jenjang FROM profil WHERE prov=$id GROUP BY jenjang;"
-        );
-        return $query;
+    function getJumlahSekolah($jenjang, $prov=NULL, $kab=NULL, $kec=NULL){
+        $this->db->select('COUNT(*) AS jumlah');
+        if($kec !== NULL && $prov === NULL && $kab === NULL){
+            $this->db->where('jenjang', $jenjang);
+            $this->db->where('kec', $kec);
+        }elseif ($kab !== NULL && $prov === NULL && $kec === NULL){
+            $this->db->where('jenjang', $jenjang);
+            $this->db->where('kab', $kab);
+        }elseif ($prov !== NULL && $kec === NULL && $kab === NULL){
+            $this->db->where('jenjang', $jenjang);
+            $this->db->where('prov', $prov);
+        }
+        return $this->db->get('profil')->result();
     }
 
-    function getSekolahKab($id){
-
+    function getSekolahProv($jenjang, $idProv){
+        $this->db->select('COUNT(*) AS jumlah');
+        $this->db->where('jenjang', $jenjang);
+        $this->db->where('prov', $idProv);
+        return $this->db->get('profil')->result();
     }
 
-    function getSekolahKec($id){
-
+    function getSekolahKab($jenjang, $idKab){
+        $this->db->select('COUNT(*) AS jumlah');
+        $this->db->where('jenjang', $jenjang);
+        $this->db->where('kab', $idKab);
+        return $this->db->get('profil')->result();
     }
+
+    function getSekolahKec($jenjang, $idKec){
+        $this->db->select('COUNT(*) AS jumlah');
+        $this->db->where('jenjang', $jenjang);
+        $this->db->where('kec', $idKec);
+        return $this->db->get('profil')->result();
+    }
+
 }

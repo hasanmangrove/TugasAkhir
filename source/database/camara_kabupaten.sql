@@ -27,7 +27,7 @@ CREATE TABLE `kabupaten` (
   `kabupaten` varchar(20) NOT NULL,
   `id_provinsi` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `kabupaten` (
 
 LOCK TABLES `kabupaten` WRITE;
 /*!40000 ALTER TABLE `kabupaten` DISABLE KEYS */;
-INSERT INTO `kabupaten` VALUES (1,'Bantul',1),(2,'Gunung Kidul',1),(3,'Kulon Progo',1),(4,'Sleman',1),(5,'Kota Yogyakarta',1);
+INSERT INTO `kabupaten` VALUES (1,'Bantul',1),(2,'Gunung Kidul',1),(3,'Kulon Progo',1),(4,'Sleman',1),(5,'Kota Yogyakarta',1),(6,'Purworejo',2);
 /*!40000 ALTER TABLE `kabupaten` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-01 13:35:53
+-- Dump completed on 2017-06-01 16:21:03

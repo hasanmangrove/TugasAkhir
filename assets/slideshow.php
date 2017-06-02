@@ -1,46 +1,39 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-/**
- * Created by PhpStorm.
- * User: Mangrove
- * Date: 25/05/2017
- * Time: 09.19
- */
-?>
-
-<section id="main-slider" style="height:461px;margin-top:20px;">
-    <div class="owl-carousel">
-        <div class="item" style="background-image: url(<?php echo base_url('assets/images/slider/bg1.jpg'); ?>);no-repeat center center fixed; background-size: cover;
- -webkit-background-size: cover;
+<section id="main-slider">
+        <div class="owl-carousel">
+            <div class="item" style="background-image: url(assets/images/slider/bg1.jpg);no-repeat center center fixed; background-size: cover;
+ -webkit-background-size: cover; 
  -moz-background-size: cover; -o-background-size: cover;">
-            <div class="slider-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h2><span>Multi</span> is the best Onepage html template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et  dolore magna incididunt ut labore aliqua. </p>
-                                <a class="btn btn-primary btn-lg" href="#">Read More</a>
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                <center>
+                                    <h2><span>Camara</span> adalah website Pangkalan data sekolah Daerah Istimewa Yogyakarta</h2>
+                                    <p>kami menyidiakan informasi bagi seluruh sekolah dan umum  </p>
+                                </center>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div><!--/.item-->
-        <div class="item" style="background-image: url(<?php echo base_url('assets/images/slider/bg2.jpg'); ?>);">
-            <div class="slider-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h2>Beautifully designed <span>free</span> one page template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et  dolore magna incididunt ut labore aliqua. </p>
-                                <a class="btn btn-primary btn-lg" href="#">Read More</a>
+            </div><!--/.item-->
+             <div class="item" style="background-image: url(assets/images/slider/bg2.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                <center>
+                                    <h2>KAMI <span>memberi</span> satu akses ke berbagai informasi Sekolah</h2>
+                                    <p>Kami membantu anda untuk menemukan informasi yang anda butuhkan. </p>
+                                    <a class="btn btn-primary btn-lg" href="tentang">Tentang Kami</a>
+                                </center>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div><!--/.item-->
-    </div><!--/.owl-carousel-->
-</section><!--/#main-slider-->
+            </div><!--/.item-->
+        </div><!--/.owl-carousel-->
+    </section><!--/#main-slider-->
