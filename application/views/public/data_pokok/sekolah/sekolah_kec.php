@@ -150,48 +150,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <table id="datatable-buttons" name="table-data" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Provinsi</th>
-                                            <th>SD</th>
-                                            <th>MI</th>
-                                            <th>SMP</th>
-                                            <th>MTS</th>
-                                            <th>SMA</th>
-                                            <th>SMK</th>
-                                            <th>MA</th>
-                                            <th>SLB</th>
-                                            <th>Total</th>
+                                            <th>Nama Sekolah</th>
+                                            <th>Jenjang</th>
+                                            <th>Akreditasi</th>
+                                            <th>Kurikulum</th>
+                                            <th>Telepon</th>
+                                            <th>Email</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $sum = 0;
                                     foreach ($sekolah as $i){
                                         echo '<tr>';
-                                        echo '<td>'.$i['provinsi'].'</td>';
-                                        echo '<td>'.$i['jenjang']['SD'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['MI'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['SMP'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['MTS'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['SMA'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['SMK'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['MA'][0]->jumlah.'</td>';
-                                        echo '<td>'.$i['jenjang']['SLB'][0]->jumlah.'</td>';
+                                        echo '<td>'.$i['nama_sekolah'].'</td>';
+                                        echo '<td>'.$i['jenjang'].'</td>';
+                                        echo '<td>'.$i['akreditasi'].'</td>';
+                                        echo '<td>'.$i['kurikulum'].'</td>';
+                                        echo '<td>'.$i['telepon'].'</td>';
+                                        echo '<td>'.$i['email'].'</td>'; ?>
 
-                                        $sum += $i['jenjang']['SD'][0]->jumlah;
-                                        $sum += $i['jenjang']['MI'][0]->jumlah;
-                                        $sum += $i['jenjang']['SMP'][0]->jumlah;
-                                        $sum += $i['jenjang']['MTS'][0]->jumlah;
-                                        $sum += $i['jenjang']['SMA'][0]->jumlah;
-                                        $sum += $i['jenjang']['SMK'][0]->jumlah;
-                                        $sum += $i['jenjang']['MA'][0]->jumlah;
-                                        $sum += $i['jenjang']['SLB'][0]->jumlah;
-                                        echo '<td>'.$sum.'</td>';
-                                        echo '</tr>';
-                                        $sum = 0;
+                                        <td>
+                                            <button class="btn btn-success">Detail</button>
+                                        </td>
+
+                                        <?php echo '</tr>';
                                     }
                                     ?>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
@@ -232,6 +220,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets'); ?>/vendors/jszip/dist/jszip.min.js"></script>
 <script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/vfs_fonts.js"></script>
+
 <script type="text/javascript">
     $('select[name="prov"]').on('change', function(){
         $.ajax({
@@ -242,7 +231,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             },
             success : function(option){
                 $('select[name="kab"]').html(option);
-            }
+            },
+            destroy: TRUE
         });
     });
     $('select[name="kab"]').on('change', function(){
@@ -254,11 +244,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             },
             success : function(option){
                 $('select[name="kec"]').html(option);
-            }
+            },
+            destroy: TRUE
         });
     });
 </script>
-<!-- Custom Theme Scripts -->
-<script src="<?php echo base_url('assets'); ?>/build/js/custom.min.js"></script>
 </body>
 </html>

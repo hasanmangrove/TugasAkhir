@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <table id="table-data" name="table-data" class="table table-striped table-bordered">
+                                <table id="datatable-buttons" name="table-data" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Kabupaten</th>
@@ -248,8 +248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets'); ?>/vendors/jszip/dist/jszip.min.js"></script>
 <script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/vfs_fonts.js"></script>
-<!-- Custom Theme Scripts -->
-<script src="<?php echo base_url('assets'); ?>/build/js/custom.min.js"></script>
+
 <script type="text/javascript">
     $('select[name="prov"]').on('change', function(){
         $.ajax({
@@ -276,5 +275,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 </script>
+
 </body>
 </html>

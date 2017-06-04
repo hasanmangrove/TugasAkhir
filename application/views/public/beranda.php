@@ -110,35 +110,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <script src="<?php echo base_url('assets'); ?>/js/wow.min.js"></script>
             <script src="<?php echo base_url('assets'); ?>/js/main.js"></script>
             <center>
+                <?php
+//                var_dump($jumlahSekolah);
+//                echo $jumlahSekolah;
+                ?>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Kota Jogja</span>
-                    <div class="count">2500</div>
-                    <span class="count_bottom"><i class="green">4% </i> dari Tahun Kemarin</span>
+                    <span class="count_top"><i class="fa fa-university"></i> Sekolah</span>
+                    <div class="count green"><?php echo $jumlahSekolah; ?></div>
+                    <span class="count_bottom"> yang sudah terdaftar</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Kabupaten Bantul</span>
-                    <div class="count">123.50</div>
-                    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> dari Tahun Kemarin</span>
+                    <span class="count_top"><i class="fa fa-star"></i> Guru</span>
+                    <div class="count green"><?php echo $jumlahGuru; ?></div>
+                    <span class="count_bottom"><i class="green"></i>aktif mengajar</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Kabupaten Kulon Progo</span>
-                    <div class="count green">2,500</div>
-                    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> dari Tahun Kemarin</span>
+                    <span class="count_top"><i class="fa fa-child"></i> Siswa</span>
+                    <div class="count green"><?php echo $jumlahSiswa[0]['jumlah']; ?></div>
+                    <span class="count_bottom"><i class="red"></i> sudah terdaftar</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Kabupaten Sleman</span>
-                    <div class="count">4,567</div>
-                    <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> dari Tahun Kemarin</span>
+                    <span class="count_top"><i class="fa fa-male"></i> Siswa KMS</span>
+                    <div class="count green"><?php echo $jumlahKMS[0]['jumlah']; ?></div>
+                    <span class="count_bottom"><i class="red"></i> yang terdaftar</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Kabupaten Gunung Kidul</span>
-                    <div class="count">4,567</div>
-                    <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> dari Tahun Kemarin</span>
+                    <span class="count_top"><i class="fa fa-user"></i> Pegawai </span>
+                    <div class="count green"><?php echo $jumlahTenagaPen; ?></div>
+                    <span class="count_bottom"><i class="green"></i> dari seluruh sekolah</span>
                 </div>
                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                    <span class="count_top"><i class="fa fa-clock"></i> D.I.Y</span>
-                    <div class="count">4,567</div>
-                    <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> dari Tahun Kemarin</span>
+                    <span class="count_top"><i class="fa fa-trophy"></i> Prestasi</span>
+                    <div class="count green"><?php echo $jumlahPrestasi; ?></div>
+                    <span class="count_bottom"><i class="red"></i> yang sudah diraih</span>
                 </div>
             </center>
             </div>

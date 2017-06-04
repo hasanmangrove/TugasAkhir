@@ -42,6 +42,16 @@ class BerandaModel extends CI_Model{
         }
     }
 
+    function sekolahByKec($id_kecamatan){
+        $this->db->where('kec', $id_kecamatan);
+        $result = $this->db->get('profil');
+        if($result->num_rows() > 0){
+            return $result->result_array();
+        }else{
+            return array();
+        }
+    }
+
     function getKecamatan(){
         return $this->db->get('kecamatan');
     }
@@ -60,21 +70,6 @@ class BerandaModel extends CI_Model{
         $this->db->where('kode_kab',$id_kabupaten);
         $this->db->order_by('nama_kec', 'asc');
         return $this->db->get()->result();
-    }
-
-    function getJumlahSekolah($jenjang, $prov=NULL, $kab=NULL, $kec=NULL){
-        $this->db->select('COUNT(*) AS jumlah');
-        if($kec !== NULL && $prov === NULL && $kab === NULL){
-            $this->db->where('jenjang', $jenjang);
-            $this->db->where('kec', $kec);
-        }elseif ($kab !== NULL && $prov === NULL && $kec === NULL){
-            $this->db->where('jenjang', $jenjang);
-            $this->db->where('kab', $kab);
-        }elseif ($prov !== NULL && $kec === NULL && $kab === NULL){
-            $this->db->where('jenjang', $jenjang);
-            $this->db->where('prov', $prov);
-        }
-        return $this->db->get('profil')->result();
     }
 
     function getSekolahProv($jenjang, $idProv){
@@ -98,4 +93,57 @@ class BerandaModel extends CI_Model{
         return $this->db->get('profil')->result();
     }
 
+    // mengambil data sekolah di pencarian data pokok -> data sekolah
+    function getsekolah($field, $idKec){
+        $this->db->select($field);
+        $this->db->where('kec', $idKec);
+        return $this->db->get('profil')->result();
+    }
+
+    //-------------- Data Pokok / Siswa -------------//
+    function jumlahSiswaProv($field, $idProv){
+        $this->db->select('SUM('.$field.') AS jumlah');
+        $this->db->where('prov', $idProv);
+        return $this->db->get('v_siswa_profil')->result_array();
+    }
+
+    function jumlahSiswaKab($field, $idKab){
+        $this->db->select('SUM('.$field.') AS jumlah');
+        $this->db->where('kab', $idKab);
+        return $this->db->get('v_siswa_profil')->result_array();
+    }
+
+    function jumlahSiswaKec($field, $idKec){
+        $this->db->select('SUM('.$field.') AS jumlah');
+        $this->db->where('kec', $idKec);
+        return $this->db->get('v_siswa_profil')->result_array();
+    }
+
+    // -------------- ringkasan beranda ------------- //
+
+    function getJumlahSekolah(){
+        return $this->db->count_all('profil');
+    }
+
+    function getJumlahGuru(){
+        return $this->db->count_all('data_guru');
+    }
+
+    function getJumlahTenagaPen(){
+        return $this->db->count_all('tenkependik');
+    }
+
+    function getJumlahKMS(){
+        $this->db->select('SUM(kms) AS jumlah');
+        return $this->db->get('siswa')->result_array();
+    }
+
+    function getJumlahSiswa(){
+        $this->db->select('SUM(jumlah_siswa) AS jumlah');
+        return $this->db->get('siswa')->result_array();
+    }
+
+    function getJumlahPrestasi(){
+        return $this->db->count_all('prestasi');
+    }
 }
