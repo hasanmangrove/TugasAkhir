@@ -15,7 +15,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h3>Menu</h3>
         <ul class="nav side-menu">
             <li><a href="<?php echo base_url('beranda'); ?>"><i class="fa fa-home"></i> Beranda </a>
-            </li>
+            <?php
+                if($this->session->userdata('level') === '1'){?>
+                    <li><a href="<?php echo base_url('admin'); ?>"><i class="fa fa-dashboard"></i> Dashboard Admin </a>
+                <?php } elseif($this->session->userdata('level') === '0'){?>
+                    <li><a href="<?php echo base_url('petugas'); ?>"><i class="fa fa-dashboard"></i> Dashboard Petugas </a>
+                <?php }
+            ?>
             <li><a><i class="fa fa-database"></i> Data Pokok <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo base_url('beranda/sekolah'); ?>">Data Sekolah</a></li>

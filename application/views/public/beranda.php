@@ -79,16 +79,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td>
                     <br>
                         <center>
+                            <form action="<?php echo base_url('/beranda/hasil') ?>" method="GET">
                             <div class="title_right">
                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                               <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Nama Sekolah">
+                                <input type="text" class="form-control" name="cari" placeholder="Nama Sekolah">
                                 <span class="input-group-btn">
-                                  <button class="btn btn-default" type="button">Cari</button>
+                                  <input class="btn btn-default" type="submit" value="cari">Cari</input>
                                 </span>
                               </div>
                             </div>
                           </div>
+                          </form>
                         </center>
                     </td>
                     </br>

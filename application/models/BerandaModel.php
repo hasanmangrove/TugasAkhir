@@ -11,6 +11,7 @@ class BerandaModel extends CI_Model{
 
     function __construct(){
         parent::__construct();
+        $this->load->database();
     }
 
     function provinsi(){
@@ -145,5 +146,12 @@ class BerandaModel extends CI_Model{
 
     function getJumlahPrestasi(){
         return $this->db->count_all('prestasi');
+    }
+
+    // ------------- Cari -------------- //
+    function cariSekolah(){
+        $cari = $this->input->GET('cari', TRUE);
+        $data = $this->db->query("SELECT *from profil where nama_sekolah like '%$cari%' OR npsn='$cari'");
+        return $data->result();
     }
 }

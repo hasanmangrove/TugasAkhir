@@ -9,7 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // mengambil segment url ke 1
 $level = $this->uri->segment(1);
-
 // menyesuaikan segment dengan header yang akan ditampilkan
 if ($level == 'admin' || $level == 'Admin') {
 

@@ -10,7 +10,7 @@ class Beranda extends CI_Controller{
 
     function __construct(){
         parent::__construct();
-
+        $this->load->helper("url");
         $this->load->model('BerandaModel');
     }
 
@@ -78,27 +78,28 @@ class Beranda extends CI_Controller{
                 $data['sekolah'] = $temp;
                 $this->load->view('public/data_pokok/sekolah/sekolah_prov', $data);
             }
-        }
+        } else {
             $data['provinsi'] = $this->BerandaModel->provinsi();
             $prov = $this->BerandaModel->provinsi();
             $temp = array();
-            foreach ($prov as $i){
+            foreach ($prov as $i) {
                 $temp[] = array(
                     'provinsi' => $i['nama'],
                     'jenjang' => array(
-                        'SD'    => $this->BerandaModel->getSekolahProv('SD', $i['id_provinsi']),
-                        'MI'    => $this->BerandaModel->getSekolahProv('MI', $i['id_provinsi']),
-                        'SMP'   => $this->BerandaModel->getSekolahProv('SMP', $i['id_provinsi']),
-                        'MTS'   => $this->BerandaModel->getSekolahProv('MTS', $i['id_provinsi']),
-                        'SMA'   => $this->BerandaModel->getSekolahProv('SMA', $i['id_provinsi']),
-                        'SMK'   => $this->BerandaModel->getSekolahProv('SMK', $i['id_provinsi']),
-                        'MA'    => $this->BerandaModel->getSekolahProv('MA', $i['id_provinsi']),
-                        'SLB'   => $this->BerandaModel->getSekolahProv('SLB', $i['id_provinsi'])
+                        'SD' => $this->BerandaModel->getSekolahProv('SD', $i['id_provinsi']),
+                        'MI' => $this->BerandaModel->getSekolahProv('MI', $i['id_provinsi']),
+                        'SMP' => $this->BerandaModel->getSekolahProv('SMP', $i['id_provinsi']),
+                        'MTS' => $this->BerandaModel->getSekolahProv('MTS', $i['id_provinsi']),
+                        'SMA' => $this->BerandaModel->getSekolahProv('SMA', $i['id_provinsi']),
+                        'SMK' => $this->BerandaModel->getSekolahProv('SMK', $i['id_provinsi']),
+                        'MA' => $this->BerandaModel->getSekolahProv('MA', $i['id_provinsi']),
+                        'SLB' => $this->BerandaModel->getSekolahProv('SLB', $i['id_provinsi'])
                     )
                 );
             }
             $data['sekolah'] = $temp;
             $this->load->view('public/data_pokok/sekolah/sekolah_default', $data);
+        }
     }
 
     function ambil_data(){
@@ -222,6 +223,20 @@ class Beranda extends CI_Controller{
         foreach ($kecamatan as $k){
             echo "<option value='$k->kode_kec'>".$k->nama_kec."</option>";
         }
+    }
+
+    function cari(){
+        $this->load->view('beranda');
+    }
+
+    function hasil(){
+
+        $data2['cari'] = $this->BerandaModel->cariSekolah();
+        $this->load->view('public/cari', $data2);
+    }
+
+    function detail_sekolah(){
+        $this->load->view('public/detail_sekolah');
     }
 
 }

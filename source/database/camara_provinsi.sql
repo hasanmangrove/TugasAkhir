@@ -35,7 +35,7 @@ CREATE TABLE `provinsi` (
 
 LOCK TABLES `provinsi` WRITE;
 /*!40000 ALTER TABLE `provinsi` DISABLE KEYS */;
-INSERT INTO `provinsi` VALUES (1,'Yogyakarta'),(2,'Jawa Tengah');
+INSERT INTO `provinsi` VALUES (1,'DI. Yogyakarta'),(2,'Jawa Tengah');
 /*!40000 ALTER TABLE `provinsi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-01 16:21:05
+-- Dump completed on 2017-06-04 14:28:52

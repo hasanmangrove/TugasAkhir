@@ -82,5 +82,7 @@ class Admin extends CI_Controller {
         session_destroy();
         redirect('');
     }
+
+
 }
 ?>
