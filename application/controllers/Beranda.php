@@ -29,7 +29,6 @@ class Beranda extends CI_Controller{
     }
 
     function sekolah(){
-        $data['sekolah'] = array();
         if($this->input->post('submit') === ''){
             if($this->input->post('kec') !== '0'){
                 $data['provinsi'] = $this->BerandaModel->provinsi();
@@ -235,8 +234,45 @@ class Beranda extends CI_Controller{
         $this->load->view('public/cari', $data2);
     }
 
-    function detail_sekolah(){
-        $this->load->view('public/detail_sekolah');
+
+    // --------------- Detail Data -------------- //
+
+    function detail_sekolah($npsn){
+        $data['profil'] = $this->BerandaModel->getProfil($npsn);
+        $data['aset_bangunan'] = $this->BerandaModel->getAsetBangunan($npsn);
+        $data['data_guru'] = $this->BerandaModel->getDataGuru($npsn);
+        $data['jurusan'] = $this->BerandaModel->getJurusan($npsn);
+        $data['kepsek'] = $this->BerandaModel->getKepsek($npsn);
+        $data['prestasi'] = $this->BerandaModel->getPrestasi($npsn);
+        $data['sarpras'] = $this->BerandaModel->getSarpras($npsn);
+        $data['siswa'] = $this->BerandaModel->getSiswa($npsn);
+        $data['tenkependik'] = $this->BerandaModel->getTenkependik($npsn);
+        $data['user'] = $this->BerandaModel->getUser($npsn);
+        $data['wakasek'] = $this->BerandaModel->getWakasek($npsn);
+        $data['kecamatan'] = $this->BerandaModel->getNamaKecamatan($data['profil'][0]['kec']);
+        $data['kabupaten'] = $this->BerandaModel->getNamaKabupaten($data['profil'][0]['kab']);
+        $data['provinsi'] = $this->BerandaModel->getNamaProvinsi($data['profil'][0]['prov']);
+        $this->load->view('public/detail_sekolah', $data);
+    }
+
+    function detail_kepsek(){
+        $this->load->view('public/detail_kepsek');
+    }
+
+    function detail_pegawai(){
+        $this->load->view('public/detail_pegawai');
+    }
+
+    function detail_prestasi(){
+        $this->load->view('public/detail_prestasi');
+    }
+
+    function detail_guru(){
+        $this->load->view('public/detail_guru');
+    }
+
+    function detail_wakasek(){
+        $this->load->view('public/detail_wakasek');
     }
 
 }

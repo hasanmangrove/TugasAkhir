@@ -154,4 +154,85 @@ class BerandaModel extends CI_Model{
         $data = $this->db->query("SELECT *from profil where nama_sekolah like '%$cari%' OR npsn='$cari'");
         return $data->result();
     }
+
+    // ------------- Detail Data ---------------- //
+    function getProfil($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('profil')->result_array();
+    }
+
+    function getAsetBangunan($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('aset_bangunan')->result_array();
+    }
+
+    function getAsetTanah($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('aset_tanah')->result_array();
+    }
+
+    function getDataGuru($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('data_guru')->result_array();
+    }
+
+    function getKepsek($npsn){
+        $this->db->where('npsn', $npsn);
+        $result = $this->db->get('kepsek');
+        if($result->num_rows() > 0){
+            return $result->result_array();
+        }else{
+            return array();
+        }
+    }
+
+    function getWakasek($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('wakasek')->result_array();
+    }
+
+    function getTenkependik($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('tenkependik')->result_array();
+    }
+
+    function getUser($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('user')->result_array();
+    }
+
+    function getPrestasi($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('prestasi')->result_array();
+    }
+
+    function getSarpras($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('sarpras')->result_array();
+    }
+
+    function getSiswa($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('profil')->result_array();
+    }
+
+    function getJurusan($npsn){
+        $this->db->where('npsn', $npsn);
+        return $this->db->get('jurusan')->result_array();
+    }
+
+    function getNamaProvinsi($idProv){
+        $this->db->where('id_provinsi', $idProv);
+        return $this->db->get('provinsi')->result_array();
+    }
+
+    function getNamaKabupaten($idKab){
+        $this->db->where('id', $idKab);
+        return $this->db->get('kabupaten')->result_array();
+    }
+
+    function getNamaKecamatan($idKec){
+        $this->db->where('kode_kec', $idKec);
+        return $this->db->get('kecamatan')->result_array();
+    }
 }

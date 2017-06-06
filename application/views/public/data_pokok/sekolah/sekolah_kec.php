@@ -173,60 +173,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         echo '<td>'.$i['email'].'</td>'; ?>
 
                                         <td>
-                                            <!-- Large modal -->
-                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Detail</button>
-
-                                            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                                                <div class="modal-dialog modal-lg" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                                                            </button>
-                                                            <h4 class="modal-title" id="myModalLabel"><?php echo $i['nama_sekolah']; ?></h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="col-xs-3">
-                                                                <!-- required for floating -->
-                                                                <!-- Nav tabs -->
-                                                                <ul class="nav nav-tabs tabs-left">
-                                                                    <li class="active"><a href="#home" data-toggle="tab">Home</a>
-                                                                    </li>
-                                                                    <li><a href="#profile" data-toggle="tab">Profile</a>
-                                                                    </li>
-                                                                    <li><a href="#messages" data-toggle="tab">Messages</a>
-                                                                    </li>
-                                                                    <li><a href="#settings" data-toggle="tab">Settings</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-
-                                                            <div class="col-xs-9">
-                                                                <!-- Tab panes -->
-                                                                <div class="tab-content">
-                                                                    <div class="tab-pane active" id="home">
-                                                                        <p class="lead">Home tab</p>
-                                                                        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                                                                            synth. Cosby sweater eu banh mi, qui irure terr.</p>
-                                                                    </div>
-                                                                    <div class="tab-pane" id="profile">Profile Tab.</div>
-                                                                    <div class="tab-pane" id="messages">Messages Tab.</div>
-                                                                    <div class="tab-pane" id="settings">Settings Tab.</div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-success" data-dismiss="modal">Keluar</button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <button class="btn btn-success btn-small">
+                                                <a href="<?php echo base_url('beranda/detail_sekolah/'.$i['npsn']); ?>">
+                                                    <i class="fa fa-info-circle"></i>
+                                                </a>
+                                            </button>
                                         </td>
 
                                         <?php echo '</tr>';
-                                    }
+                                    };
                                     ?>
                                     </tbody>
                                 </table>
