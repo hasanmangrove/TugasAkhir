@@ -186,8 +186,42 @@ class Beranda extends CI_Controller{
         $this->load->view('public/kepsek');
     }
 
-    function wakasek(){
-        $this->load->view('public/wakasek');
+    function wakasek($idProv=NULL, $idKab=NULL, $idKec=NULL){
+        if($idKec !== NULL){
+
+        } elseif ($idKab !== NULL){
+            $kecamatan = $this->BerandaModel->kecamatan($idKab);
+            $temp = array();
+
+        }elseif ($idProv !== NULL){
+            $kabupaten = $this->BerandaModel->kabupaten($idProv);
+            $temp = array();
+            foreach ($kabupaten as $i){
+                $temp[] = array(
+                    'id_kabupaten' => $i['id'],
+                    'nama_kabupaten' => $i['kabupaten'],
+                    'PWM' => $this->BerandaModel->getWakasekKol('COUNT(asal_sk) AS jumlah', array('prov' => $i['id'], 'asal_sk' => 'PWM')),
+                    'PDM' => $this->BerandaModel->getWakasekKol('COUNT(asal_sk) AS jumlah', array('prov' => $i['id'], 'asal_sk' => 'PDM')),
+                    'Sekolah' => $this->BerandaModel->getWakasekKol('COUNT(asal_sk) AS jumlah', array('prov' => $i['id'], 'asal_sk' => 'Sekolah'))
+                );
+            }
+            $data['wakasek'] = $temp;
+            $this->load->view('public/data_pokok/wakasek/wakasek_prov', $data);
+        } else {
+            $provinsi = $this->BerandaModel->provinsi();
+            $temp = array();
+            foreach ($provinsi as $i){
+                $temp[] = array(
+                    'id_provinsi' => $i['id_provinsi'],
+                    'nama_provinsi' => $i['nama'],
+                    'PWM' => $this->BerandaModel->getWakasekKol('COUNT(asal_sk) AS jumlah', array('prov' => $i['id_provinsi'], 'asal_sk' => 'PWM')),
+                    'PDM' => $this->BerandaModel->getWakasekKol('COUNT(asal_sk) AS jumlah', array('prov' => $i['id_provinsi'], 'asal_sk' => 'PDM')),
+                    'Sekolah' => $this->BerandaModel->getWakasekKol('COUNT(asal_sk) AS jumlah', array('prov' => $i['id_provinsi'], 'asal_sk' => 'Sekolah'))
+                );
+            }
+            $data['wakasek'] = $temp;
+            $this->load->view('public/data_pokok/wakasek/wakasek_default', $data);
+        }
     }
 
     function kabupaten(){
@@ -257,16 +291,26 @@ class Beranda extends CI_Controller{
         $this->load->view('public/detail_pegawai');
     }
 
-    function detail_prestasi(){
-        $this->load->view('public/detail_prestasi');
+    function detail_prestasi($npsn){
+        $data['profil'] = $this->BerandaModel->getProfil($npsn);
+        $data['prestasi'] = $this->BerandaModel->getPrestasiKol('*', array('npsn' => $npsn));
+        $this->load->view('public/detail_prestasi', $data);
     }
 
     function detail_guru(){
         $this->load->view('public/detail_guru');
     }
 
-    function detail_wakasek(){
-        $this->load->view('public/detail_wakasek');
+    function detail_wakasek($npsn){
+        $data['wakasek'] = $this->BerandaModel->getWakasek($npsn);
+        $data['wakasek_det'] = array(
+            'jumlah_waka' => $this->BerandaModel->getWakasekKol('COUNT(npsn) AS jumlah', array('npsn' => $npsn))
+        );
+        $data['profil'] = $this->BerandaModel->getProfil($npsn);
+        $data['kecamatan'] = $this->BerandaModel->getNamaKecamatan($data['profil'][0]['kec']);
+        $data['kabupaten'] = $this->BerandaModel->getNamaKabupaten($data['profil'][0]['kab']);
+        $data['provinsi'] = $this->BerandaModel->getNamaProvinsi($data['profil'][0]['prov']);
+        $this->load->view('public/detail_wakasek', $data);
     }
 
 }

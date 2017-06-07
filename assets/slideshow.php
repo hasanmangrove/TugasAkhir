@@ -9,7 +9,7 @@
                             <div class="col-sm-6">
                                 <div class="carousel-content">
                                 <center>
-                                    <h2><span>Camara</span> adalah website Pangkalan data sekolah Daerah Istimewa Yogyakarta</h2>
+                                    <h2><span>Camara</span> adalah website pangkalan data sekolah seluruh Indonesia</h2>
                                     <p>kami menyidiakan informasi bagi seluruh sekolah dan umum  </p>
                                 </center>
                                 </div>
@@ -27,7 +27,7 @@
                                 <center>
                                     <h2>KAMI <span>memberi</span> satu akses ke berbagai informasi Sekolah</h2>
                                     <p>Kami membantu anda untuk menemukan informasi yang anda butuhkan. </p>
-                                    <a class="btn btn-primary btn-lg" href="tentang">Tentang Kami</a>
+                                    <a class="btn btn-primary btn-lg" href="<?php echo base_url(); ?>">Tentang Kami</a>
                                 </center>
                                 </div>
                             </div>

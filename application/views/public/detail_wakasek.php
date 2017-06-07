@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Detail Sekolah</h3>
+                        <h3>Detail Wakil Kepala Sekolah</h3>
                     </div>
                 </div>
 
@@ -67,294 +67,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Nama Sekolah</h2>
-                                <ul class="nav navbar-right">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="x_content">
-                                <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                                    <div class="profile_img">
-                                        <div id="crop-avatar">
-                                            <!-- Current avatar -->
-                                            <img class="img-responsive avatar-view" src="<?php echo base_url('assets'); ?>/images/picture.jpg" alt="Avatar" title="Change the avatar">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <ul class="list-unstyled user_data">
-                                        <li><i class="fa fa-user user-profile-icon"></i> Kepalas sekolah</li>
-                                        <li><i class="fa fa-phone user-profile-icon"></i> Operator</li>
-                                        <li><i class="fa fa-star user-profile-icon"></i> Akreditasi</li>
-                                        <li><i class="fa fa-book user-profile-icon"></i> Kurikulum</li>
 
-                                        <li class="m-top-xs">
-                                            <i class="fa fa-external-link user-profile-icon"></i>
-                                            <a href="http://www.kimlabs.com/profile/" target="_blank">Website</a>
+                                <div class="flex">
+                                    <ul class="list-inline widget_profile_box">
+                                        <li>
+                                            <img src="<?php echo base_url('assets'); ?>/images/user.png" alt="..." class="img-circle profile_img">
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('beranda/detail_sekolah/'.$profil[0]['npsn']); ?>"><i class="fa fa-institution"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo base_url('beranda/wakasek'); ?>"><i class="fa fa-close"></i></a>
                                         </li>
                                     </ul>
-
                                 </div>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                                            <li role="presentation" class="active"><a href="#tab_content0" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Profil</a>
-                                            </li>
-                                            <li role="presentation" class=""><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Struktur</a>
-                                            </li>
-                                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Pegawai</a>
-                                            </li>
-                                            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Rekapitulasi</a>
-                                            </li>
-                                        </ul>
-                                        <div id="myTabContent" class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content0" aria-labelledby="home-tab">
-                                                <div class="x_panel">
-                                                    <div class="x_title">
-                                                        <h2><i class="fa fa-info-circle"></i> Identitas Sekolah</h2>
-                                                        <ul class="nav navbar-right">
-                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="x_content">
-                                                    </div>
-                                                </div>
+                                <br>
+                                <h3 class="name"><?php echo $profil[0]['nama_sekolah']; ?></h3>
 
-                                                <div class="x_panel">
-                                                    <div class="x_title">
-                                                        <h2><i class="fa fa-book"></i> Kontak</h2>
-                                                        <ul class="nav navbar-right">
-                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="x_content">
-                                                    </div>
-                                                </div>
+                                <div class="flex">
+                                    <ul class="list-inline count2">
+                                        <li>
 
-                                                <div class="x_panel">
-                                                    <div class="x_title">
-                                                        <h2><i class="fa fa-book"></i> Detail</h2>
-                                                        <ul class="nav navbar-right">
-                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="x_content">
-                                                    </div>
-                                                </div>
+                                        </li>
+                                        <li>
+                                            <h3><?php echo $wakasek_det['jumlah_waka'][0]['jumlah']; ?></h3>
+                                            <span>Wakil Kepala</span>
+                                        </li>
+                                        <li>
 
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="tab_content1" aria-labelledby="profile-tab">
-
-                                                <!-- start recent activity -->
-                                                <ul class="messages">
-                                                    <li>
-                                                        <img src="<?php echo base_url('assets'); ?>/images/img.jpg" class="avatar" alt="Avatar">
-                                                        <div class="message_date">
-                                                            <h3 class="date text-info"></h3>
-                                                            <p class="month">Kepala Sekolah</p>
-                                                        </div>
-                                                        <div class="message_wrapper">
-                                                            <h4 class="heading">Nama Kepala Sekolah</h4>
-                                                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                                            <br />
-                                                            <p class="url">
-                                                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                                                <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                                <ul class="messages">
-                                                    <li>
-                                                        <img src="<?php echo base_url('assets'); ?>/images/img.jpg" class="avatar" alt="Avatar">
-                                                        <div class="message_date">
-                                                            <h3 class="date text-info"></h3>
-                                                            <p class="month">Bidang Kurikulum</p>
-                                                        </div>
-                                                        <div class="message_wrapper">
-                                                            <h4 class="heading">Nama Wakil</h4>
-                                                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                                            <br />
-                                                            <p class="url">
-                                                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                                                <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                                <ul class="messages">
-                                                    <li>
-                                                        <img src="<?php echo base_url('assets'); ?>/images/img.jpg" class="avatar" alt="Avatar">
-                                                        <div class="message_date">
-                                                            <h3 class="date text-info"></h3>
-                                                            <p class="month">Bidang Kurikulum</p>
-                                                        </div>
-                                                        <div class="message_wrapper">
-                                                            <h4 class="heading">Nama Wakil</h4>
-                                                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                                            <br />
-                                                            <p class="url">
-                                                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                                                <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <!-- end recent activity -->
-
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-
-                                                <div class="x_panel">
-                                                    <div class="x_title">
-                                                        <h2><i class="fa fa-info-circle"></i> Guru</h2>
-                                                        <ul class="nav navbar-right">
-                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="x_content">
-                                                    </div>
-                                                </div>
-
-                                                <div class="x_panel">
-                                                    <div class="x_title">
-                                                        <h2><i class="fa fa-info-circle"></i> Staff</h2>
-                                                        <ul class="nav navbar-right">
-                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="x_content">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-
-                                                <div class="x_content">
-
-                                                    <div class="col-xs-3">
-                                                        <!-- required for floating -->
-                                                        <!-- Nav tabs -->
-                                                        <ul class="nav nav-tabs tabs-left">
-                                                            <li class="active"><a href="#home" data-toggle="tab">2015/2016</a>
-                                                            </li>
-                                                            <li><a href="#profile" data-toggle="tab">2016/2017</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="col-xs-9">
-                                                        <!-- Tab panes -->
-                                                        <div class="tab-content">
-                                                            <div class="tab-pane active" id="home">
-                                                                <div class="x_panel">
-                                                                    <div class="x_title">
-                                                                        <h2><i class="fa fa-info-circle"></i> Data PTK dan PD</h2>
-                                                                        <ul class="nav navbar-right">
-                                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="x_content">
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="x_panel">
-                                                                    <div class="x_title">
-                                                                        <h2><i class="fa fa-book"></i> Data Sarpras</h2>
-                                                                        <ul class="nav navbar-right">
-                                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="x_content">
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="x_panel">
-                                                                    <div class="x_title">
-                                                                        <h2><i class="fa fa-book"></i> Data Rombel</h2>
-                                                                        <ul class="nav navbar-right">
-                                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="x_content">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="tab-pane" id="profile">
-                                                                <div class="x_panel">
-                                                                    <div class="x_title">
-                                                                        <h2><i class="fa fa-info-circle"></i> Data PTK dan PD</h2>
-                                                                        <ul class="nav navbar-right">
-                                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="x_content">
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="x_panel">
-                                                                    <div class="x_title">
-                                                                        <h2><i class="fa fa-book"></i> Data Sarpras</h2>
-                                                                        <ul class="nav navbar-right">
-                                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="x_content">
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="x_panel">
-                                                                    <div class="x_title">
-                                                                        <h2><i class="fa fa-book"></i> Data Rombel</h2>
-                                                                        <ul class="nav navbar-right">
-                                                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="x_content">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="clearfix"></div>
-
-                                                </div>
-
-
-                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Identitas</a>
+                                        </li>
+                                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Info</a>
+                                        </li>
+                                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Akademik</a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
+                                                synth. Cosby sweater eu banh mi, qui irure terr.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                                                booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                                                booth letterpress, commodo enim craft beer mlkshk </p>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
