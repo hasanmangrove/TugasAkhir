@@ -28,72 +28,63 @@ class Beranda extends CI_Controller{
         $this->load->view('public/pertumbuhan');
     }
 
-    function sekolah(){
-        if($this->input->post('submit') === ''){
-            if($this->input->post('kec') !== '0'){
-                $data['provinsi'] = $this->BerandaModel->provinsi();
-                $data['sekolah'] = $this->BerandaModel->sekolahByKec($this->input->post('kec'));
-                $this->load->view('public/data_pokok/sekolah/sekolah_kec', $data);
-            } elseif ($this->input->post('kab') !== '0') {
-                $data['provinsi'] = $this->BerandaModel->provinsi();
-                $kec = $this->BerandaModel->kecamatan($this->input->post('kab'));
-                $temp = array();
-                foreach ($kec as $i){
-                    $temp[] = array(
-                        'kecamatan' => $i['nama_kec'],
-                        'jenjang' => array(
-                            'SD'    => $this->BerandaModel->getSekolahKec('SD', $i['kode_kec']),
-                            'MI'    => $this->BerandaModel->getSekolahKec('MI', $i['kode_kec']),
-                            'SMP'   => $this->BerandaModel->getSekolahKec('SMP', $i['kode_kec']),
-                            'MTS'   => $this->BerandaModel->getSekolahKec('MTS', $i['kode_kec']),
-                            'SMA'   => $this->BerandaModel->getSekolahKec('SMA', $i['kode_kec']),
-                            'SMK'   => $this->BerandaModel->getSekolahKec('SMK', $i['kode_kec']),
-                            'MA'    => $this->BerandaModel->getSekolahKec('MA', $i['kode_kec']),
-                            'SLB'   => $this->BerandaModel->getSekolahKec('SLB', $i['kode_kec'])
-                        )
-                    );
-                }
-                $data['sekolah'] = $temp;
-                $this->load->view('public/data_pokok/sekolah/sekolah_kab', $data);
-            } elseif ($this->input->post('prov') !== '0') {
-                $data['provinsi'] = $this->BerandaModel->provinsi();
-                $kab = $this->BerandaModel->kabupaten($this->input->post('prov'));
-                $temp = array();
-                foreach ($kab as $i){
-                    $temp[] = array(
-                        'kabupaten' => $i['kabupaten'],
-                        'jenjang' => array(
-                            'SD'    => $this->BerandaModel->getSekolahKab('SD', $i['id']),
-                            'MI'    => $this->BerandaModel->getSekolahKab('MI', $i['id']),
-                            'SMP'   => $this->BerandaModel->getSekolahKab('SMP', $i['id']),
-                            'MTS'   => $this->BerandaModel->getSekolahKab('MTS', $i['id']),
-                            'SMA'   => $this->BerandaModel->getSekolahKab('SMA', $i['id']),
-                            'SMK'   => $this->BerandaModel->getSekolahKab('SMK', $i['id']),
-                            'MA'    => $this->BerandaModel->getSekolahKab('MA', $i['id']),
-                            'SLB'   => $this->BerandaModel->getSekolahKab('SLB', $i['id'])
-                        )
-                    );
-                }
-                $data['sekolah'] = $temp;
-                $this->load->view('public/data_pokok/sekolah/sekolah_prov', $data);
-            }
-        } else {
-            $data['provinsi'] = $this->BerandaModel->provinsi();
-            $prov = $this->BerandaModel->provinsi();
+    function sekolah($idProv=NULL, $idKab=NULL, $idKec=NULL){
+        if($idKec !== NULL){
+            $data['sekolah'] = $this->BerandaModel->getSekolahKol('*', array('kec' => $idKec));
+            $this->load->view('public/data_pokok/sekolah/sekolah_kec', $data);
+        } elseif ($idKab !== NULL){
+            $kecamatan = $this->BerandaModel->kecamatan($idKab);
             $temp = array();
-            foreach ($prov as $i) {
+            foreach ($kecamatan as $i){
                 $temp[] = array(
-                    'provinsi' => $i['nama'],
-                    'jenjang' => array(
-                        'SD' => $this->BerandaModel->getSekolahProv('SD', $i['id_provinsi']),
-                        'MI' => $this->BerandaModel->getSekolahProv('MI', $i['id_provinsi']),
-                        'SMP' => $this->BerandaModel->getSekolahProv('SMP', $i['id_provinsi']),
-                        'MTS' => $this->BerandaModel->getSekolahProv('MTS', $i['id_provinsi']),
-                        'SMA' => $this->BerandaModel->getSekolahProv('SMA', $i['id_provinsi']),
-                        'SMK' => $this->BerandaModel->getSekolahProv('SMK', $i['id_provinsi']),
-                        'MA' => $this->BerandaModel->getSekolahProv('MA', $i['id_provinsi']),
-                        'SLB' => $this->BerandaModel->getSekolahProv('SLB', $i['id_provinsi'])
-                    )
+                    'id_kecamatan' => $i['kode_kec'],
+                    'nama_kecamatan' => $i['nama_kec'],
+                    'SD' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'SD')),
+                    'MI' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'MI')),
+                    'SMP' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'SMP')),
+                    'MTS' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'MTS')),
+                    'SMA' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'SMA')),
+                    'SMK' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'SMK')),
+                    'MA' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'MA')),
+                    'SLB' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kec' => $i['kode_kec'], 'jenjang' => 'SLB')),
+                );
+            }
+            $data['sekolah'] = $temp;
+            $this->load->view('public/data_pokok/sekolah/sekolah_kab', $data);
+        }elseif ($idProv !== NULL){
+            $kabupaten = $this->BerandaModel->kabupaten($idProv);
+            $temp = array();
+            foreach ($kabupaten as $i){
+                $temp[] = array(
+                    'id_kabupaten' => $i['id'],
+                    'nama_kabupaten' => $i['kabupaten'],
+                    'SD' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'SD')),
+                    'MI' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'MI')),
+                    'SMP' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'SMP')),
+                    'MTS' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'MTS')),
+                    'SMA' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'SMA')),
+                    'SMK' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'SMK')),
+                    'MA' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'MA')),
+                    'SLB' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('kab' => $i['id'], 'jenjang' => 'SLB'))
+                );
+            }
+            $data['sekolah'] = $temp;
+            $this->load->view('public/data_pokok/sekolah/sekolah_prov', $data);
+        } else {
+            $provinsi = $this->BerandaModel->provinsi();
+            $temp = array();
+            foreach ($provinsi as $i){
+                $temp[] = array(
+                    'id_provinsi' => $i['id_provinsi'],
+                    'nama_provinsi' => $i['nama'],
+                    'SD' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'SD')),
+                    'MI' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'MI')),
+                    'SMP' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'SMP')),
+                    'MTS' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'MTS')),
+                    'SMA' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'SMA')),
+                    'SMK' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'SMK')),
+                    'MA' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'MA')),
+                    'SLB' => $this->BerandaModel->getSekolahKol('COUNT(jenjang) AS jumlah', array('prov' => $i['id_provinsi'], 'jenjang' => 'SLB'))
                 );
             }
             $data['sekolah'] = $temp;
@@ -115,62 +106,56 @@ class Beranda extends CI_Controller{
         $this->load->view('public/data');
     }
 
-    function siswa(){
-        if($this->input->post('submit') === ''){
-            if($this->input->post('kaec' !== '0')){
-
-            } elseif ($this->input->post('kab') !== '0'){
-                echo 'was here';
-                $data['provinsi'] = $this->BerandaModel->provinsi();
-                $kec = $this->BerandaModel->kecamatan($this->input->post('kab'));
-                $temp = array();
-                foreach ($kec as $i){
-                    $temp[] = array(
-                        'kode_kec' => $i['kode_kec'],
-                        'nama_kec' => $i['nama_kec'],
-                        'jumlah_putra' => $this->BerandaModel->jumlahSiswaKec('jumlah_putra', $i['kode_kec']),
-                        'jumlah_putri' => $this->BerandaModel->jumlahSiswaKec('jumlah_putri', $i['kode_kec']),
-                        'kms' => $this->BerandaModel->jumlahSiswaKec('kms', $i['kode_kec']),
-                        'non_kms' => $this->BerandaModel->jumlahSiswaKec('non_kms', $i['kode_kec']),
-                        'jumlah_siswa' => $this->BerandaModel->jumlahSiswaKec('jumlah_siswa', $i['kode_kec']),
-                    );
-                }
-                $data['siswa'] = $temp;
-                $this->load->view('public/data_pokok/siswa/siswa_kab', $data);
-            }elseif ($this->input->post('prov') !== '0'){
-                $data['provinsi'] = $this->BerandaModel->provinsi();
-                $kab = $this->BerandaModel->kabupaten($this->input->post('prov'));
-                $temp = array();
-                foreach ($kab as $i){
-                    $temp[] = array(
-                        'id' => $i['id'],
-                        'kabupaten' => $i['kabupaten'],
-                        'jumlah_putra' => $this->BerandaModel->jumlahSiswaKab('jumlah_putra', $i['id']),
-                        'jumlah_putri' => $this->BerandaModel->jumlahSiswaKab('jumlah_putri', $i['id']),
-                        'kms' => $this->BerandaModel->jumlahSiswaKab('kms', $i['id']),
-                        'non_kms' => $this->BerandaModel->jumlahSiswaKab('non_kms', $i['id']),
-                        'jumlah_siswa' => $this->BerandaModel->jumlahSiswaKab('jumlah_siswa', $i['id']),
-                    );
-                }
-                $data['siswa'] = $temp;
-                $this->load->view('public/data_pokok/siswa/siswa_prov', $data);
+    function siswa($idProv=NULL, $idKab=NULL, $idKec=NULL){
+        if($idKec !== NULL){
+            $data['siswa'] = $this->BerandaModel->getSiswaKol('*', array('kec' => $idKec));
+            $this->load->view('public/data_pokok/siswa/siswa_kec', $data);
+        } elseif ($idKab !== NULL){
+            $kecamatan = $this->BerandaModel->kecamatan($idKab);
+            $temp = array();
+            foreach ($kecamatan as $i){
+                $temp[] = array(
+                    'id_kecamatan' => $i['kode_kec'],
+                    'nama_kecamatan' => $i['nama_kec'],
+                    'jumlah_putra' => $this->BerandaModel->getSiswaKol('SUM(jumlah_putra) AS jumlah', array('kec' => $i['kode_kec'])),
+                    'jumlah_putri' => $this->BerandaModel->getSiswaKol('SUM(jumlah_putri) AS jumlah', array('kec' => $i['kode_kec'])),
+                    'kms' => $this->BerandaModel->getSiswaKol('SUM(kms) AS jumlah', array('kec' => $i['kode_kec'])),
+                    'non_kms' => $this->BerandaModel->getSiswaKol('SUM(non_kms) AS jumlah', array('kec' => $i['kode_kec']))
+                );
             }
+            $data['siswa'] = $temp;
+            $this->load->view('public/data_pokok/siswa/siswa_kab', $data);
+        }elseif ($idProv !== NULL){
+            $kabupaten = $this->BerandaModel->kabupaten($idProv);
+            $temp = array();
+            foreach ($kabupaten as $i){
+                $temp[] = array(
+                    'id_kabupaten' => $i['id'],
+                    'nama_kabupaten' => $i['kabupaten'],
+                    'jumlah_putra' => $this->BerandaModel->getSiswaKol('SUM(jumlah_putra) AS jumlah', array('kab' => $i['id'])),
+                    'jumlah_putri' => $this->BerandaModel->getSiswaKol('SUM(jumlah_putri) AS jumlah', array('kab' => $i['id'])),
+                    'kms' => $this->BerandaModel->getSiswaKol('SUM(kms) AS jumlah', array('kab' => $i['id'])),
+                    'non_kms' => $this->BerandaModel->getSiswaKol('SUM(non_kms) AS jumlah', array('kab' => $i['id']))
+                );
+            }
+            $data['siswa'] = $temp;
+            $this->load->view('public/data_pokok/siswa/siswa_prov', $data);
+        } else {
+            $provinsi = $this->BerandaModel->provinsi();
+            $temp = array();
+            foreach ($provinsi as $i){
+                $temp[] = array (
+                    'id_provinsi' => $i['id_provinsi'],
+                    'nama_provinsi' => $i['nama'],
+                    'jumlah_putra' => $this->BerandaModel->getSiswaKol('SUM(jumlah_putra) AS jumlah', array('prov' => $i['id_provinsi'])),
+                    'jumlah_putri' => $this->BerandaModel->getSiswaKol('SUM(jumlah_putri) AS jumlah', array('prov' => $i['id_provinsi'])),
+                    'kms' => $this->BerandaModel->getSiswaKol('SUM(kms) AS jumlah', array('prov' => $i['id_provinsi'])),
+                    'non_kms' => $this->BerandaModel->getSiswaKol('SUM(non_kms) AS jumlah', array('prov' => $i['id_provinsi']))
+                );
+            }
+            $data['siswa'] = $temp;
+            $this->load->view('public/data_pokok/siswa/siswa_default', $data);
         }
-        $data['provinsi'] = $this->BerandaModel->provinsi();
-        $provinsi = $this->BerandaModel->provinsi();
-        foreach ($provinsi as $i){
-            $temp[] = array(
-                'id_provinsi' => $i['id_provinsi'],
-                'nama' => $i['nama'],
-                'jumlah_putra' => $this->BerandaModel->jumlahSiswaProv('jumlah_putra', $i['id_provinsi']),
-                'jumlah_putri' => $this->BerandaModel->jumlahSiswaProv('jumlah_putri', $i['id_provinsi']),
-                'kms' => $this->BerandaModel->jumlahSiswaProv('kms', $i['id_provinsi']),
-                'non_kms' => $this->BerandaModel->jumlahSiswaProv('non_kms', $i['id_provinsi']),
-                'jumlah_siswa' => $this->BerandaModel->jumlahSiswaProv('jumlah_siswa', $i['id_provinsi']),
-            );
-        }
-        $data['siswa'] = $temp;
-        $this->load->view('public/data_pokok/siswa/siswa_default', $data);
     }
 
     function rombel(){
@@ -253,6 +238,15 @@ class Beranda extends CI_Controller{
         $data['kabupaten'] = $this->BerandaModel->getNamaKabupaten($data['profil'][0]['kab']);
         $data['provinsi'] = $this->BerandaModel->getNamaProvinsi($data['profil'][0]['prov']);
         $this->load->view('public/detail_sekolah', $data);
+    }
+
+    function detail_siswa($npsn){
+        $data['siswa'] = $this->BerandaModel->getSiswa($npsn);
+        $data['profil'] = $this->BerandaModel->getProfil($npsn);
+        $data['kecamatan'] = $this->BerandaModel->getNamaKecamatan($data['profil'][0]['kec']);
+        $data['kabupaten'] = $this->BerandaModel->getNamaKabupaten($data['profil'][0]['kab']);
+        $data['provinsi'] = $this->BerandaModel->getNamaProvinsi($data['profil'][0]['prov']);
+        $this->load->view('public/detail_siswa', $data);
     }
 
     function detail_kepsek(){

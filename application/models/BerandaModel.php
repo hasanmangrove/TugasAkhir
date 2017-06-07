@@ -101,7 +101,39 @@ class BerandaModel extends CI_Model{
         return $this->db->get('profil')->result();
     }
 
+    // ------------ Data Pokok / Sekolah --------------- //
+
+    function getSekolahKol($kolom, $where, $group=NULL){
+        $this->db->select($kolom);
+        $this->db->where($where);
+        if(isset($group)){
+            $this->db->group_by($group);
+        }
+        $result = $this->db->get('profil');
+        if($result->num_rows() > 0){
+            return $result->result_array();
+        }else{
+            return array();
+        }
+    }
+
+
     //-------------- Data Pokok / Siswa -------------//
+
+    function getSiswaKol($kolom, $where, $group=NULL){
+        $this->db->select($kolom);
+        $this->db->where($where);
+        if(isset($group)){
+            $this->db->group_by($group);
+        }
+        $result = $this->db->get('v_siswa_profil');
+        if($result->num_rows() > 0){
+            return $result->result_array();
+        }else{
+            return array();
+        }
+    }
+
     function jumlahSiswaProv($field, $idProv){
         $this->db->select('SUM('.$field.') AS jumlah');
         $this->db->where('prov', $idProv);

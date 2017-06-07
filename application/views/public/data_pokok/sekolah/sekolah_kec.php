@@ -69,72 +69,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="clearfix"></div>
-
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Navigasi</h2>
-                                <ul class="nav navbar-right">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <br />
-                                <?php
-                                $attributes = array('class' => 'form-horizontal form-label-left', 'method' => 'POST');
-                                echo form_open('beranda/sekolah', $attributes);
-                                ?>
-
-                                    <!-- Provinsi -->
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Provinsi</label>
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <select class="form-control" name="prov" id="provinsi">
-                                                <option value="0">Pilih Provinsi</option>
-                                                <?php
-                                                foreach ($provinsi as $i){
-                                                    echo "<option value='$i[id_provinsi]'>$i[nama]</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <!-- Kabupaten -->
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kabupaten</label>
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <select class="form-control" name="kab" id="kabupaten">
-                                                <option value="0">Pilih Kabupaten</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <!-- Kecamatan -->
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kecamatan</label>
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <select class="form-control" name="kec" id="kecamatan">
-                                                <option value="0">Pilih Kecamatan</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                            <button type="reset" class="btn btn-primary">Reset</button>
-                                            <button type="submit" name="submit" class="btn btn-success">Cari Sekolah</button>
-                                        </div>
-                                    </div>
-
-                                <?php echo form_close(); ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
@@ -157,32 +91,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <th>Kurikulum</th>
                                             <th>Telepon</th>
                                             <th>Email</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    foreach ($sekolah as $i){
-                                        echo '<tr>';
-                                        echo '<td>'.$i['npsn'].'</td>';
-                                        echo '<td>'.$i['nama_sekolah'].'</td>';
-                                        echo '<td>'.$i['jenjang'].'</td>';
-                                        echo '<td>'.$i['akreditasi'].'</td>';
-                                        echo '<td>'.$i['kurikulum'].'</td>';
-                                        echo '<td>'.$i['telepon'].'</td>';
-                                        echo '<td>'.$i['email'].'</td>'; ?>
-
-                                        <td>
-                                            <button class="btn btn-success btn-small">
-                                                <a href="<?php echo base_url('beranda/detail_sekolah/'.$i['npsn']); ?>">
-                                                    <i class="fa fa-info-circle"></i>
+                                    $idProv = $this->uri->segment(3);
+                                    $idKab = $this->uri->segment(4);
+                                    $sum = 0;
+                                    foreach ($sekolah as $i){ ?>
+                                        <tr>
+                                            <td>
+                                                <a href="<?php echo base_url('beranda/detail_sekolah/'.$i['npsn'])?>">
+                                                    <?php echo $i['npsn']; ?>
                                                 </a>
-                                            </button>
-                                        </td>
-
-                                        <?php echo '</tr>';
-                                    };
-                                    ?>
+                                            </td>
+                                            <td><?php
+                                                if(isset($i['nama_sekolah'])){
+                                                    echo $i['nama_sekolah'];
+                                                    $sum += $i['nama_sekolah'];
+                                                } else {
+                                                    echo '0';
+                                                }; ?>
+                                            </td>
+                                            <td><?php
+                                                if(isset($i['jenjang'])){
+                                                    echo $i['jenjang'];
+                                                    $sum += $i['jenjang'];
+                                                } else {
+                                                    echo '0';
+                                                }; ?>
+                                            </td>
+                                            <td><?php
+                                                if(isset($i['akreditasi'])){
+                                                    echo $i['akreditasi'];
+                                                    $sum += $i['akreditasi'];
+                                                } else {
+                                                    echo '0';
+                                                }; ?>
+                                            </td>
+                                            <td><?php
+                                                if(isset($i['kurikulum'])){
+                                                    echo $i['kurikulum'];
+                                                    $sum += $i['kurikulum'];
+                                                } else {
+                                                    echo '0';
+                                                }; ?>
+                                            </td>
+                                            <td><?php
+                                                if(isset($i['telepon'])){
+                                                    echo $i['telepon'];
+                                                    $sum += $i['telepon'];
+                                                } else {
+                                                    echo '0';
+                                                }; ?>
+                                            </td>
+                                            <td><?php
+                                                if(isset($i['email'])){
+                                                    echo $i['email'];
+                                                    $sum += $i['email'];
+                                                } else {
+                                                    echo '0';
+                                                }; ?>
+                                            </td>
+                                        </tr>
+                                    <?php }; ?>
                                     </tbody>
                                 </table>
 
@@ -227,33 +199,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="<?php echo base_url('assets'); ?>/vendors/pdfmake/build/vfs_fonts.js"></script>
 
-<script type="text/javascript">
-    $('select[name="prov"]').on('change', function(){
-        $.ajax({
-            type : 'POST',
-            url  : '<?php echo base_url('beranda/kabupaten'); ?>',
-            data : {
-                prov : $(this).val()
-            },
-            success : function(option){
-                $('select[name="kab"]').html(option);
-            },
-            destroy: TRUE
-        });
-    });
-    $('select[name="kab"]').on('change', function(){
-        $.ajax({
-            type : 'POST',
-            url  : '<?php echo base_url('beranda/kecamatan'); ?>',
-            data : {
-                kab : $(this).val()
-            },
-            success : function(option){
-                $('select[name="kec"]').html(option);
-            },
-            destroy: TRUE
-        });
-    });
-</script>
+<!-- Custom Theme Scripts -->
+<script src="<?php echo base_url('assets'); ?>/build/js/custom.min.js"></script>
+
 </body>
 </html>
